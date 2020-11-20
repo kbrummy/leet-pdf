@@ -1,18 +1,15 @@
 import React from 'react';
-import Home from './components/pages/Login';
-import Profile from './components/pages/Profile';
-import Signup from './components/pages/Signup';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.css';
-import {Route} from 'react-router-dom';
-import Login from './components/pages/Login';
+import Home from "./components/";
+
 
 function App() {
   return (
-    <div>
-      <Route path="/" exact component={Home}/>
-      <Route path="/profile" exact component={Profile}/>
-      <Route path="/signup" exact component={Signup}/>
-    </div>
+    <>
+   <CssBaseline />
+    <Home />
+    </>
   );
 }
 
