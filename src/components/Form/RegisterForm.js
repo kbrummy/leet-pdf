@@ -2,8 +2,8 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { Divider, Typography } from '@material-ui/core';
-import SaveProfileBTN from './SaveProfileBTN';
-
+import SaveProfileBTN from '../Button/SaveProfileBTN';
+import PreviewBTN from '../Button/PreviewBTN';
 // import MenuItem from '@material-ui/core/MenuItem';
 // import Checkbox from '@material-ui/core/Checkbox';
 
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     form: {
-        backgroundColor: "",
+        backgroundColor: "white",
         padding: "4rem"
     },
     personal: {
@@ -337,6 +337,7 @@ const Form = () => {
                 <Divider />
                 <div className={classes.SaveProfileBTN}>
                     <SaveProfileBTN />
+                    <PreviewBTN />
                 </div>          
             </form>
         </div>

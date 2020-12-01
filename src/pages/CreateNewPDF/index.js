@@ -1,9 +1,9 @@
 import React from 'react';
-import { Typography, Grid, Card } from '@material-ui/core';
-import Form from '../../components/Form/RegisterForm';
+
+import { Typography, Card } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Navbar from '../../components/Navbar';
-
+import Form from '../../components/Form/Form';
 
 const useStyles = makeStyles((theme) => ({
     mainContainer: {
@@ -18,29 +18,21 @@ const useStyles = makeStyles((theme) => ({
         paddding:"1rem",
         background: "#c0c2c4",
     },
-    // formCard: {
-    //     background: "#dee3e2",
-    //     alignText: "center",
-        
-    // },
-  }));
+}));
 
-const Profile = () => {
+const Create = () => {
     const classes = useStyles();
     return (
         <div>
         <Navbar />
-        <Grid className={classes.mainContainer}>
-            <Typography variant="h3" className={classes.heading}>
-                Create Account
+        <Card Grid className={classes.mainContainer}>
+            <Typography varient="h3" className={classes.heading}>
+                CREATE NEW PDF
             </Typography>
-            <Card className={classes.formCard}>
-                <Form />
-               
-            </Card>
-        </Grid>
+            <Form />
+        </Card>
         </div>
     )
 }
 
-export default Profile;
+export default Create;

@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
 const menuItems = [
   {
     listIcon: <Home />,
-    listTest: "Home",
+    listTest: "Dashboard",
     listPath: "/",
   },
   {
@@ -67,12 +67,12 @@ const menuItems = [
   },
   {
     listIcon: <AddBoxIcon />,
-    listTest: "Create",
+    listTest: "Create New PDF",
     listPath: "/create",
   },
    {
     listIcon: <TurnedInIcon />,
-    listTest: "Save",
+    listTest: "Saved PDF's",
     listPath: "/saved",
   },
   {
