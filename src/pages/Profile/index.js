@@ -2,6 +2,8 @@ import React from 'react';
 import Navbar from '../../components/Navbar';
 import { Typography } from '@material-ui/core';
 import Form from './Form';
+import SaveProfileBTN from './SaveProfileBTN';
+import Card from '@material-ui/core/Card';
 
 
 
@@ -13,7 +15,11 @@ const Profile = () => {
             <Typography variant="h3">
                 PROFILE
             </Typography>
-            <Form />
+            <Card>
+                <Form />
+                <SaveProfileBTN />
+            </Card>
+      
            
         </div>
     )
