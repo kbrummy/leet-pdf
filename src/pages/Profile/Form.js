@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     form: {
-        backgroundColor: "",
+        backgroundColor: "white",
         padding: "4rem"
     },
     personal: {

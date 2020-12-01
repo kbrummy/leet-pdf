@@ -20,15 +20,14 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Create = () => {
+const Saved = () => {
     const classes = useStyles();
     return (
         <div>
         <Navbar />
-    
         <Card Grid className={classes.mainContainer}>
             <Typography varient="h3" className={classes.heading}>
-                CREATE NEW PDF
+            Saved PDFs
             </Typography>
             <Form />
         </Card>
@@ -38,4 +37,4 @@ const Create = () => {
     )
 }
 
-export default Create;
+export default Saved;

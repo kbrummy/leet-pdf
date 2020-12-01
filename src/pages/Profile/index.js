@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
         padding: "3rem",
     },
     heading: {
-        fontSize: "60px",
+        fontSize: "50px",
         fontweight: "bold",
         color: "#2e3236",
         textAlign: "center",

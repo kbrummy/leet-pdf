@@ -21,7 +21,7 @@ const Form = () => {
     return (
         <div className={classes.root}>
             <form className={classes.form}>
-                <Typography className={classes.subHeading}>Select from PDF options:</Typography>
+                <Typography className={classes.subHeading}>Select from previously created PDFs</Typography>
                 <Divider />
             </form>
         </div>
