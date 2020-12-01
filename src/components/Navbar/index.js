@@ -33,7 +33,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 // import SavedPDF from "../../images/icons/saved.png";
 // import Logout from "../../images/icons/logout.png";
 // 
-import avatar from "../../images/Leet.jpg";
+import avatar from "../../static/Leet.jpg";
 
 // CSS STYLES
 const useStyles = makeStyles(theme => ({
