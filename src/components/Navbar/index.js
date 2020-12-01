@@ -39,7 +39,7 @@ import avatar from "../../static/Leet.jpg";
 const useStyles = makeStyles(theme => ({
   menuSliderContainer: {
     width: 300,
-    background: "darkgrey",
+    backgroundColor: "#1d242b",
     height: "100%",
   },
   avatar: {
@@ -49,7 +49,7 @@ const useStyles = makeStyles(theme => ({
     height: theme.spacing(13),
   },
   listItem: {
-    color: 'black'
+    color: 'white',
   }
 }));
 
@@ -117,12 +117,12 @@ const Navbar = () => {
   return (
     <>
       <Box compnent='navbar'>
-        <AppBar position='static' style={{ background: '#222' }}>
+        <AppBar position='static' style={{ background: "#1d242b" }}>
             <Toolbar>
               <IconButton onClick={toggleSlider("left", true)}>
                 <MenuOpenIcon style={{ color: 'red' }}/>
               </IconButton>   
-              <Typography variant='h5' style={{color: 'grey'}}>
+              <Typography variant='h5' style={{color: "#dee3e2"}}>
                 Leet
               </Typography>   
               <MobileLeftMenuSlider 
