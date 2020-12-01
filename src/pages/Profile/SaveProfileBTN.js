@@ -6,6 +6,7 @@ import SaveIcon from '@material-ui/icons/Save';
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
+    alignText: "center",
   },
 }));
 
@@ -16,7 +17,7 @@ export default function SaveProfileBTN() {
     <div>
       <Button
         variant="contained"
-        color="primary"
+        color="secondary"
         size="large"
         className={classes.button}
         startIcon={<SaveIcon />}

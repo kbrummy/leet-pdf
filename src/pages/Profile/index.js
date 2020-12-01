@@ -1,26 +1,45 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
-import { Typography } from '@material-ui/core';
+import { Typography, Grid, Card } from '@material-ui/core';
 import Form from './Form';
-import SaveProfileBTN from './SaveProfileBTN';
-import Card from '@material-ui/core/Card';
+import { makeStyles } from '@material-ui/core/styles';
+import Footer from '../../components/Footer';
 
-
+const useStyles = makeStyles((theme) => ({
+    mainContainer: {
+        backgroundColor: "#dee3e2",
+        padding: "3rem",
+    },
+    heading: {
+        fontSize: "60px",
+        fontweight: "bold",
+        color: "#2e3236",
+        textAlign: "center",
+        paddding:"1rem",
+        background: "#c0c2c4",
+    },
+    // formCard: {
+    //     background: "#dee3e2",
+    //     alignText: "center",
+        
+    // },
+  }));
 
 const Profile = () => {
-
+    const classes = useStyles();
     return (
         <div>
-            <Navbar />
-            <Typography variant="h3">
-                PROFILE
+        <Navbar />
+        <Grid className={classes.mainContainer}>
+            <Typography variant="h3" className={classes.heading}>
+                Create Account
             </Typography>
-            <Card>
+            <Card className={classes.formCard}>
                 <Form />
-                <SaveProfileBTN />
+               
             </Card>
-      
-           
+        </Grid>
+        <Footer />
         </div>
     )
 }
