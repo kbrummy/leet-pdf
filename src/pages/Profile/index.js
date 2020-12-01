@@ -1,9 +1,9 @@
 import React from 'react';
-import Navbar from '../../components/Navbar';
 import { Typography, Grid, Card } from '@material-ui/core';
-import Form from './Form';
+import Form from '../../components/Form/RegisterForm';
 import { makeStyles } from '@material-ui/core/styles';
-import Footer from '../../components/Footer';
+import Navbar from '../../components/Navbar';
+
 
 const useStyles = makeStyles((theme) => ({
     mainContainer: {
@@ -39,7 +39,6 @@ const Profile = () => {
                
             </Card>
         </Grid>
-        <Footer />
         </div>
     )
 }

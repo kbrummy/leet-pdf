@@ -1,9 +1,8 @@
 import React from 'react';
-import Navbar from '../../components/Navbar';
 import { Typography, Card } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Footer from '../../components/Footer';
-import Form from './Form';
+import Form from '../../components/Form/EmptyForm';
+import Navbar from '../../components/Navbar';
 
 const useStyles = makeStyles((theme) => ({
     mainContainer: {
@@ -31,8 +30,6 @@ const Saved = () => {
             </Typography>
             <Form />
         </Card>
-       
-        <Footer />
         </div>
     )
 }
