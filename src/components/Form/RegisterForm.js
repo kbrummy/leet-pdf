@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
-import { Divider, Typography } from '@material-ui/core';
+import { Divider, Typography, Grid } from '@material-ui/core';
 import SaveProfileBTN from '../Button/SaveProfileBTN';
 import PreviewBTN from '../Button/PreviewBTN';
 // import MenuItem from '@material-ui/core/MenuItem';
@@ -44,9 +44,10 @@ const useStyles = makeStyles((theme) => ({
     subHeading: {
         fontSize: "40px",
     },
-    SaveProfileBTN: {
+   BTN: {
         justifyContent: "right",
     },
+    
 
   }));
 
@@ -335,9 +336,12 @@ const Form = () => {
 
                 </div>
                 <Divider />
-                <div className={classes.SaveProfileBTN}>
-                    <SaveProfileBTN />
-                    <PreviewBTN />
+                <div className={classes.BTN}>
+                    <Grid>
+                        <SaveProfileBTN />
+                        <PreviewBTN />
+                    </Grid>
+                   
                 </div>          
             </form>
         </div>
