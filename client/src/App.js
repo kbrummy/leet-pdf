@@ -14,6 +14,7 @@ import Saved from "./pages/Saved/index";
 import NoMatch from "./pages/NoMatch/index";
 import Footer from "./components/Footer";
 import Login from "./pages/Login/index";
+import SignUp from "./pages/SignUp/index";
 // import Register from './pages/Register/index';
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
         <Switch>
           <Route exact path={"/login"}>
             <Login />
+          </Route>
+          <Route exact path={"/signup"}>
+            <SignUp />
           </Route>
           {/* <Route path={"/login"}>
                 <Redirect to="/register" />
