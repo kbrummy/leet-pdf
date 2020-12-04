@@ -1,12 +1,8 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  //Redirect,
-} from "react-router-dom";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import "./App.css";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// ADD Redirect above when login is done 
+import CssBaseline from '@material-ui/core/CssBaseline';
+import './App.css';
 import Dashboard from "./pages/Dashboard/index";
 import Create from "./pages/CreateNewPDF/index";
 import Profile from "./pages/Profile/index";
