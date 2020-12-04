@@ -30,8 +30,6 @@ const useStyles = makeStyles({
 const Footer = () => {
   const classes = useStyles();
 
-    const classes = useStyles();
-
     return(
         <div className={classes.footerContainer}>
             <Typography className={classes.subHeadingTwo}>Created & Designed by: </Typography>
