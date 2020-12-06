@@ -11,6 +11,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import avatar from "../../static/Leet.jpg";
+// import { Link } from "react-router-dom";
+
 
 function Copyright() {
   return (
