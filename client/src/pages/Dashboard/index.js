@@ -4,6 +4,7 @@ import Header from '../../components/Header';
 import PreviewCards from '../../components/PreviewCards';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, Card } from '@material-ui/core';
+import Select from '../../components/SelectPDF/index';
 // import Grid from '@material-ui/core/Grid';
 
 
@@ -42,6 +43,7 @@ const Dashboard = () => {
                 <Grid item xs={8}>
                     <Card className={classes.previewCards}>
                         <PreviewCards />
+                        <Select />
                     </Card>
                 </Grid>
                 <Grid item xs={2}>
