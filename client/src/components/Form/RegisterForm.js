@@ -4,6 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Divider, Typography, Grid } from '@material-ui/core';
 import SaveProfileBTN from '../Button/SaveProfileBTN';
 import PreviewBTN from '../Button/PreviewBTN';
+import Select from '@material-ui/core/Select';
+import FormControl from '@material-ui/core/FormControl';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
 // import MenuItem from '@material-ui/core/MenuItem';
 // import Checkbox from '@material-ui/core/Checkbox';
 
@@ -47,7 +51,9 @@ const useStyles = makeStyles((theme) => ({
    BTN: {
         justifyContent: "right",
     },
-    
+    formControl: {
+        background: "#dee3e2",
+    },
 
   }));
 
@@ -55,6 +61,11 @@ const useStyles = makeStyles((theme) => ({
   
 const Form = () => {
     const classes = useStyles();
+    const [gender, setGender] = React.useState('');
+
+    const handleChange = (event) => {
+      setGender(event.target.value);
+    };
     // const [gender, setGender] = React.useState('Male');
     // const handleChange = (event) => {
     //     setGender(event.target.value);
@@ -93,21 +104,24 @@ const Form = () => {
                         color="secondary"
                     />
                         {/* GENDER */}
-                    {/* <TextField
+                    <FormControl variant="outlined"  color="secondary"
+                     className={classes.formControl}
+                     >
+                        <InputLabel id="gender">Gender</InputLabel>
+                        <Select
+                        labelId="gender"
                         id="gender"
-                        select
-                        label="Gender"
                         value={gender}
                         onChange={handleChange}
-                        helperText="Please select your gender"
-                        variant="outlined"
                         >
-                        {gender.map((option) => (
-                            <MenuItem key={option.value} value={option.value}>
-                            {option.label}
+                            <MenuItem value="">
+                                <em>None</em>
                             </MenuItem>
-                        ))}
-                        </TextField> */}
+                            <MenuItem value={"Male"}>Male</MenuItem>
+                            <MenuItem value={"Female"}>Female</MenuItem>
+                            <MenuItem value={"Other"}>Other</MenuItem>
+                        </Select>
+                    </FormControl>
                     <TextField
                         required
                         id="ss_number"
@@ -154,6 +168,7 @@ const Form = () => {
                         color="secondary"
                     />
                         {/* USE FOR LARGER ADDRESS */}
+
                     {/* <TextField
                         id="outlined-multiline-static"
                         label="Multiline"

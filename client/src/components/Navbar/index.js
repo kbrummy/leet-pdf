@@ -75,10 +75,11 @@ const menuItems = [
     listTest: "Saved PDF's",
     listPath: "/saved",
   },
+  // Add link to the landing page
   {
     listIcon: <ExitToAppIcon />,
     listTest: "Logout",
-    listPath: "/logout",
+    listPath: "/login",
   },
 ]
 
