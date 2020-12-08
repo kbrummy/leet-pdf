@@ -21,10 +21,12 @@ const Form = () => {
     return (
         <div className={classes.root}>
             <form className={classes.form}>
-                <Typography className={classes.subHeading}>Select from PDF options:</Typography>
+                <Typography className={classes.subHeading}>Select from PDF options:
+                </Typography>
                 <Divider />
             </form>
         </div>
     )
 };
 export default Form;
+

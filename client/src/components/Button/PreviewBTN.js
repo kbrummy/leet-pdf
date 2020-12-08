@@ -1,7 +1,7 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
-import SaveIcon from '@material-ui/icons/Save';
+import React from "react";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+import SaveIcon from "@material-ui/icons/Save";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -21,6 +21,13 @@ export default function PreviewBTN() {
         size="large"
         className={classes.button}
         startIcon={<SaveIcon />}
+        onClick={(e) => {
+          e.preventDefault();
+          const url = new URL(window.location.origin);
+          url.port = 3001;
+          url.pathname = "/createpdf/" + escape("Your First Name")
+          window.open(url.href, '_blank');
+        }}
       >
         Print/Preview
       </Button>
