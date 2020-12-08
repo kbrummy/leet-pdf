@@ -4,7 +4,7 @@ import Header from '../../components/Header';
 import PreviewCards from '../../components/PreviewCards';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, Card } from '@material-ui/core';
-import Select from '../../components/SelectPDF/index';
+// import Select from '../../components/SelectPDF';
 // import Grid from '@material-ui/core/Grid';
 
 
@@ -43,14 +43,13 @@ const Dashboard = () => {
                 <Grid item xs={8}>
                     <Card className={classes.previewCards}>
                         <PreviewCards />
-                        <Select />
                     </Card>
                 </Grid>
                 <Grid item xs={2}>
                     <Card className={classes.paper}>History for selected client</Card>
                 </Grid>
                   {/* SECOND ROW */}
-                <Grid item xs={2}>
+                {/* <Grid item xs={2}>
                     <Card>Hi</Card>
                 </Grid>
                 <Grid item xs={8}>
@@ -60,7 +59,7 @@ const Dashboard = () => {
                 </Grid>
                 <Grid item xs={2}>
                     <Card className={classes.paper}>Another Suggestion??</Card>
-                </Grid>
+                </Grid> */}
                
             </Grid>
             

@@ -5,7 +5,12 @@ import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
 // import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Card from '../Card';
+import Cards from '../Card/Card.js';
+import Card from '../Card/index';
+
+// import passport from '../../static/img/passport.jpg';
+// import nameChange from '../../static/img/nameChange.jpg';
+// import voter from '../../static/img/voter.ipg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,24 +30,11 @@ export default function PreviewCards() {
 
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="lg">
+      <Container className={classes.root}>
 
-        <div className={classes.root}>
-          <Grid container spacing={3}>
-            <Grid item xs={3}>
-              <Card />
-            </Grid>
-            <Grid item xs={3}>
-              <Card />
-            </Grid>
-            <Grid item xs={3}>
-              <Card />
-            </Grid>
-            <Grid item xs={3}>
-              <Card />
-            </Grid>
-          </Grid>
-        </div>
+        <Grid item xs={4} md={6}>
+          <Cards />
+        </Grid>
 
       </Container>
     </React.Fragment>
