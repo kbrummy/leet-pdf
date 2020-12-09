@@ -12,12 +12,13 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const User = require("./user");
-const routes = require("./routes");
+// const User = require("./user");
+// const routes = require("./routes");
 
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 mongoose.connect(
   // "mongodb+srv://{Place Your Username Here!}:{Place Your Password Here!}@cluster0-q9g9s.mongodb.net/test?retryWrites=true&w=majority",
+process.env.MONGODB_URI || 'mongodb://localhost/leetdbteam',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -47,7 +48,7 @@ app.use(
 app.use(cookieParser("secretcode"));
 app.use(passport.initialize());
 app.use(passport.session());
-require("./passportConfig")(passport);
+// require("./passportConfig")(passport);
 
 //----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
 
