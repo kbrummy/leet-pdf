@@ -22,7 +22,7 @@ import Register from "./pages/Register/index";
 import Landing from "./pages/Landing/index";
 import PrivateRoute from "./components/PrivateRoute/index";
 // import Create from "./pages/CreateNewPDF/index";
-// import Profile from "./pages/Profile/index";
+import Profile from "./pages/Profile/index";
 // import Saved from "./pages/Saved/index";
 // import NoMatch from "./pages/NoMatch/index";
 // import Footer from "./components/Footer";
@@ -60,6 +60,7 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Switch>
+            <Route exact path="/profile" component={Profile} />
               <Route exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>

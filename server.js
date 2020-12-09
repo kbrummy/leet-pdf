@@ -1,5 +1,6 @@
 require ("dotenv").config()
 const mongoose = require("mongoose");
+const docspring = require("./test/docspring");
 const express = require("express");
 const cors = require('cors');
 const passport = require("passport");
@@ -11,9 +12,7 @@ const bodyParser = require("body-parser");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
-
-const User = require("./user");
-const routes = require("./routes");
+// const User = require("./user");
 
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 mongoose.connect(
@@ -47,7 +46,7 @@ app.use(
 app.use(cookieParser("secretcode"));
 app.use(passport.initialize());
 app.use(passport.session());
-require("./passportConfig")(passport);
+// require("./passportConfig")(passport);
 
 //----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
 
@@ -84,6 +83,9 @@ app.post("/register", (req, res) => {
 app.get("/user", (req, res) => {
   res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
+app.get('/createpdf/:firstName', function (req, res) {
+  docspring.generateDs11(req, res);
+})
 //----------------------------------------- END OF ROUTES---------------------------------------------------
 //Start Server
 // Start the API server
