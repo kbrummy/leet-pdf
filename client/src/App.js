@@ -1,6 +1,6 @@
-import React, { Component }  from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// ADD Redirect above when login is done 
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// ADD Redirect above when login is done
 // import jwt_decode from "jwt-decode";
 // import setAuthToken from "./utils/setAuthToken";
 
@@ -8,25 +8,23 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import { Provider } from "react-redux";
 // import store from "./store";
 
-
 // import Register from "./components/auth/Register";
 // import Login from "./components/auth/Login";
 // import PrivateRoute from "./components/private-route/PrivateRoute";
 // import Dashboard from "./components/dashboard/Dashboard";
 
-import CssBaseline from '@material-ui/core/CssBaseline';
-import './App.css';
+import CssBaseline from "@material-ui/core/CssBaseline";
+import "./App.css";
 import Dashboard from "./pages/Dashboard/index";
 import Login from "./pages/Login/index";
 import Register from "./pages/Register/index";
 import Landing from "./pages/Landing/index";
 import PrivateRoute from "./components/PrivateRoute/index";
-// import Create from "./pages/CreateNewPDF/index";
+import Create from "./pages/CreateNewPDF/index";
 import Profile from "./pages/Profile/index";
-// import Saved from "./pages/Saved/index";
+import Saved from "./pages/Saved/index";
 // import NoMatch from "./pages/NoMatch/index";
 // import Footer from "./components/Footer";
-
 
 // Check for token to keep user logged in
 // if (localStorage.jwtToken) {
@@ -52,27 +50,27 @@ class App extends Component {
   render() {
     return (
       // <Provider store={store}>
-        <Router>
-          <div className="App">
-            <CssBaseline />
-            {/* <Navbar /> */}
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
-            <Switch>
+      <Router>
+        <div className="App">
+          <CssBaseline />
+          {/* <Navbar /> */}
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/saved" component={Saved} />
+          <Route exact path="/create" component={Create} />
+          <Switch>
             <Route exact path="/profile" component={Profile} />
-              <Route exact path="/dashboard" component={Dashboard} />
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            </Switch>
-          </div>
-        </Router>
+            <Route exact path="/dashboard" component={Dashboard} />
+            <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          </Switch>
+        </div>
+      </Router>
       // </Provider>
     );
   }
 }
 export default App;
-
-
 
 // function App() {
 //   return (
@@ -121,5 +119,3 @@ export default App;
 <Route path='/create' exact component={Create} /> 
 <Route path='/saved' exact component={Saved} /> */
 }
-
-
