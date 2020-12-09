@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../../components/Navbar';
 import { Typography } from '@material-ui/core';
 import Form from './Form';
-import SaveProfileBTN from './SaveProfileBTN';
+import SaveProfileBTN from '../../components/Button/SaveProfileBTN';
 import Card from '@material-ui/core/Card';
 
 
