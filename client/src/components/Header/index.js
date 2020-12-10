@@ -1,15 +1,16 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
+import { FontDownloadTwoTone } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
     },
-    paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
+    header: {
+      fontSize: "60px",
+      fontWeight: "bold",
+      padding: "3rem",
     },
   }));
 
@@ -18,7 +19,10 @@ const Header = () => {
     const classes = useStyles();
     return (
         <div>
-        <Grid
+          <Container variant="h2" className={classes.header} >
+            Welcome to Leet! 
+          </Container>
+        {/* <Grid
             container
             direction="column"
             justify="center"
@@ -26,9 +30,7 @@ const Header = () => {
             className={classes.mainContainer}
             >
             
-        </Grid>
-            
-        
+        </Grid> */}
         </div>
     )
 }

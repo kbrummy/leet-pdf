@@ -6,25 +6,6 @@ import { Divider, Typography, makeStyles } from "@material-ui/core";
 // import MenuItem from '@material-ui/core/MenuItem';
 // import Checkbox from '@material-ui/core/Checkbox';
 
-const gender = [
-  {
-    value: "Male",
-    label: "Male",
-  },
-  {
-    value: "Female",
-    label: "Female",
-  },
-  {
-    value: "Nonbinary",
-    label: "Nonbinary",
-  },
-  {
-    value: "None or a comnbination",
-    label: "None or a comnbination",
-  },
-];
-
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
@@ -35,10 +16,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Form = ({handleInput, state}) => {
-
-
-
-
 
     const classes = useStyles();
     // const [gender, setGender] = React.useState('Male');

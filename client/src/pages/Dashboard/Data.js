@@ -7,6 +7,8 @@ import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import tileData from './tileData';
 import { Typography } from '@material-ui/core';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -50,8 +52,11 @@ export default function Data() {
 
   return (
     <div className={classes.root}>
-    <Typography variant="h4"className={classes.header}>
+    <Typography variant="h4" className={classes.header}>
         Create a New PDF
+        <Fab color="primary" aria-label="add">
+            <AddIcon />
+        </Fab>
     </Typography>
       <GridList className={classes.gridList} cols={1}>
         {tileData.map((tile) => (

@@ -3,13 +3,19 @@ import Navbar from '../../components/Navbar';
 // import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Typography, Card } from '@material-ui/core';
+import { Grid, Card } from '@material-ui/core';
 import Data from './Data';
+import Profile from '../Profile';
+import Header from '../../components/Header';
+import Divider from '@material-ui/core/Divider';
 
 
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
+      height:"100%",
+      width:"100%",
+      display:"block",
     },
     paper: {
       height: 140,
@@ -31,9 +37,8 @@ const Dashboard = () => {
     return (
         <div className={classes.root}>
             <Navbar />
-            <Typography variant="h2" className={classes.heading}>
-                    Dashboard
-                </Typography>
+            <Header />
+            <Divider />
             <Grid container spacing={3}>
               
                 <Grid item xs={2}>
@@ -42,26 +47,14 @@ const Dashboard = () => {
 
 
                 <Grid item xs={7}>
-                    <Card className={classes.previewCards}>
-                        {/* <PreviewCards /> */}
+                    <Card className={classes.profile}>
+                        <Profile />
                     </Card>
                 </Grid>
                 <Grid item xs={3}>
                     <Data />
                 </Grid>
-                  {/* SECOND ROW */}
-                {/* <Grid item xs={2}>
-                    <Card>Hi</Card>
-                </Grid>
-                <Grid item xs={8}>
-                    <Card className={classes.previewCards}>
-                        <PreviewCards />
-                    </Card>
-                </Grid>
-                <Grid item xs={2}>
-                    <Card className={classes.paper}>Another Suggestion??</Card>
-                </Grid> */}
-               
+
             </Grid>
             
            <Footer />

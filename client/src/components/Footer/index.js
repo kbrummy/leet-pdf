@@ -20,6 +20,10 @@ const useStyles = makeStyles({
     color: "white",
     padding: "1rem",
     height: "auto",
+    position:"absolute",
+    bottom:"0",
+    display:"block", 
+    width:"100%",
   },
   subHeadingTwo: {
     textAlign: "center",
