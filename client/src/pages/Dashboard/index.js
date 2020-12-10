@@ -1,11 +1,10 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
-import Header from '../../components/Header';
-import PreviewCards from '../../components/PreviewCards';
+// import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, Card } from '@material-ui/core';
-// import Select from '../../components/SelectPDF';
-// import Grid from '@material-ui/core/Grid';
+import Data from './Data';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -32,21 +31,23 @@ const Dashboard = () => {
     return (
         <div className={classes.root}>
             <Navbar />
-            <Typography variant="h3" className={classes.heading}>
+            <Typography variant="h2" className={classes.heading}>
                     Dashboard
                 </Typography>
             <Grid container spacing={3}>
               
                 <Grid item xs={2}>
-                    <Header />
+                  
                 </Grid>
-                <Grid item xs={8}>
+
+
+                <Grid item xs={7}>
                     <Card className={classes.previewCards}>
-                        <PreviewCards />
+                        {/* <PreviewCards /> */}
                     </Card>
                 </Grid>
-                <Grid item xs={2}>
-                    <Card className={classes.paper}>History for selected client</Card>
+                <Grid item xs={3}>
+                    <Data />
                 </Grid>
                   {/* SECOND ROW */}
                 {/* <Grid item xs={2}>
@@ -63,7 +64,7 @@ const Dashboard = () => {
                
             </Grid>
             
-           
+           <Footer />
         </div>
     )
 }

@@ -82,15 +82,15 @@ app.use(passport.session());
 //     if (!doc) {
 //       const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-      const newUser = new User({
-        username: req.body.username,
-        password: hashedPassword,
-      });
-      await newUser.save();
-      res.send("User Created");
-    }
-  });
+const newUser = new User({
+  username: req.body.username,
+  password: hashedPassword,
 });
+await newUser.save();
+res.send("User Created");
+ 
+ 
+
 app.get("/user", (req, res) => {
   res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
