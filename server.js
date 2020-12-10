@@ -1,7 +1,8 @@
-require ("dotenv").config()
+require("dotenv").config();
 const mongoose = require("mongoose");
+const docspring = require("./test/docspring");
 const express = require("express");
-const cors = require('cors');
+const cors = require("cors");
 const passport = require("passport");
 //const passportLocal = require("passport-local").Strategy;
 const cookieParser = require("cookie-parser");
@@ -21,8 +22,9 @@ const PORT = process.env.PORT || 3001;
 
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/project3",
+
   // "mongodb+srv://{Place Your Username Here!}:{Place Your Password Here!}@cluster0-q9g9s.mongodb.net/test?retryWrites=true&w=majority",
+  process.env.MONGODB_URI || "mongodb://localhost/leetdbteam",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -55,7 +57,7 @@ app.use(
 app.use(cookieParser("secretcode"));
 app.use(passport.initialize());
 app.use(passport.session());
-//require("./passportConfig")(passport);
+// require("./passportConfig")(passport);
 
 //----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
 
@@ -80,21 +82,24 @@ app.use(passport.session());
 //     if (!doc) {
 //       const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-//       const newUser = new User({
-//         username: req.body.username,
-//         password: hashedPassword,
-//       });
-//       await newUser.save();
-//       res.send("User Created");
-//     }
-//   });
-// });
-// app.get("/user", (req, res) => {
-//   res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
-// });
+      const newUser = new User({
+        username: req.body.username,
+        password: hashedPassword,
+      });
+      await newUser.save();
+      res.send("User Created");
+    }
+  });
+});
+app.get("/user", (req, res) => {
+  res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
+});
+app.post("/createpdf", function (req, res) {
+  docspring.generateDs11(req, res);
+});
 //----------------------------------------- END OF ROUTES---------------------------------------------------
 //Start Server
 // Start the API server
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });

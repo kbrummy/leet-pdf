@@ -16,11 +16,7 @@ function generateDs11(req, res) {
   var template_id = "tpl_aD7H2ZgJRE54nLMCb9";
   var submission_data = {
     editable: false,
-    data: {
-      firstName: req.params.firstName,
-      lastName: "test2",
-      middleName: "test3",
-    },
+    data: req.body,
   };
   client.generatePDF(template_id, submission_data, function (error, response) {
     if (error) {
@@ -29,8 +25,7 @@ function generateDs11(req, res) {
     }
     var submission = response.submission;
     // console.log("Download your PDF at:", submission.download_url);
-    res.redirect(submission.download_url)
-
+    res.json({ href: submission.download_url });
   });
 }
 

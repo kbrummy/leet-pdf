@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PreviewBTN() {
+export default function PreviewBTN({ state }) {
   const classes = useStyles();
 
   return (
@@ -25,8 +25,18 @@ export default function PreviewBTN() {
           e.preventDefault();
           const url = new URL(window.location.origin);
           url.port = 3001;
-          url.pathname = "/createpdf/" + escape("Your First Name")
-          window.open(url.href, '_blank');
+          url.pathname = "/createpdf";
+
+          fetch(url.href, {
+            method: "POST",
+            body: JSON.stringify(state),
+            headers: { "Content-Type": "application/json" },
+          }).then((res) => {
+            res.json().then((json) => {
+              console.log(json);
+              window.open(json.href, "_blank");
+            });
+          });
         }}
       >
         Print/Preview
