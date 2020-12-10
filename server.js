@@ -86,7 +86,7 @@ app.post("/register", (req, res) => {
 app.get("/user", (req, res) => {
   res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
-app.get("/createpdf/:firstName", function (req, res) {
+app.post("/createpdf", function (req, res) {
   docspring.generateDs11(req, res);
 });
 //----------------------------------------- END OF ROUTES---------------------------------------------------
