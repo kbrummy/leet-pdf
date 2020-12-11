@@ -6,7 +6,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 // import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Cards from '../Card/Card.js';
-import Card from '../Card/index';
 
 // import passport from '../../static/img/passport.jpg';
 // import nameChange from '../../static/img/nameChange.jpg';
