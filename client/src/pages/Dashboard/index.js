@@ -1,69 +1,72 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
-import Header from '../../components/Header';
-import PreviewCards from '../../components/PreviewCards';
+import Footer from '../../components/Footer';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Typography, Card } from '@material-ui/core';
-// import Select from '../../components/SelectPDF';
-// import Grid from '@material-ui/core/Grid';
+import { Grid, Box } from '@material-ui/core';
+
+import Header from '../../components/Header';
+import Divider from '@material-ui/core/Divider';
+import Sidebar from '../Sidebar'
+import Preview from '../Preview';
+import Profile from '../Profile';
 
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      flexGrow: 1,
+    //   display:"block",
+    //   height:"100%",
+    //   width:"100%",
+    //   display:"block",
     },
     paper: {
-      height: 140,
+      height: 500,
       width: 100,
     },
     control: {
       padding: theme.spacing(2),
     },
+    // data: {
+    //     height:"100%",
+    //     alignItem: "center",
+    // },
+    preview: {
+        alignContent: "center",
+        justifyContent: "center",
+        textAlign: "center",
+    },
+
   }));
 
 const Dashboard = () => {
-    // const [spacing, setSpacing] = React.useState(2);
+  
     const classes = useStyles();
 
-    // const handleChange = (event) => {
-    //     setSpacing(Number(event.target.value));
-    //   };
 
     return (
         <div className={classes.root}>
             <Navbar />
-            <Typography variant="h3" className={classes.heading}>
-                    Dashboard
-                </Typography>
+            <Header />
+            <Divider />
             <Grid container spacing={3}>
               
-                <Grid item xs={2}>
-                    <Header />
+                <Grid item xs={3}>
+                    <Preview />
+              
                 </Grid>
-                <Grid item xs={8}>
-                    <Card className={classes.previewCards}>
-                        <PreviewCards />
-                    </Card>
+
+                <Grid item xs={6} className={classes.profile}>
+                    <Profile />
                 </Grid>
-                <Grid item xs={2}>
-                    <Card className={classes.paper}>History for selected client</Card>
-                </Grid>
-                  {/* SECOND ROW */}
-                {/* <Grid item xs={2}>
-                    <Card>Hi</Card>
-                </Grid>
-                <Grid item xs={8}>
-                    <Card className={classes.previewCards}>
-                        <PreviewCards />
-                    </Card>
-                </Grid>
-                <Grid item xs={2}>
-                    <Card className={classes.paper}>Another Suggestion??</Card>
-                </Grid> */}
+                <Grid item xs={3} className={classes.data}>
+                    <Box className={classes.preview}>
+                        <Sidebar />
+                    </Box>
                
+                </Grid>
+
             </Grid>
-            
-           
+            <Divider />
+           <Footer />
         </div>
     )
 }

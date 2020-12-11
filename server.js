@@ -60,7 +60,10 @@ app.use(passport.session());
 // require("./passportConfig")(passport);
 
 //----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
-
+app.get("/test", (req, res) => {
+  console.log("you ")
+  res.send("hI, Im on the font end now!")
+})
 // Routes
 // app.post("/login", (req, res, next) => {
 //   passport.authenticate("local", (err, user, info) => {
@@ -82,15 +85,15 @@ app.use(passport.session());
 //     if (!doc) {
 //       const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-      const newUser = new User({
-        username: req.body.username,
-        password: hashedPassword,
-      });
-      await newUser.save();
-      res.send("User Created");
-    }
-  });
+const newUser = new User({
+  username: req.body.username,
+  password: hashedPassword,
 });
+await newUser.save();
+res.send("User Created");
+ 
+ 
+
 app.get("/user", (req, res) => {
   res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });

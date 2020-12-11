@@ -1,34 +1,64 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      flexGrow: 1,
+      '& > *': {
+        margin: theme.spacing(3),
+      },
     },
-    paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
+    input: {
+      display: 'none',
     },
-  }));
+    margin: {
+        margin: theme.spacing(1),
+      },
+      extendedIcon: {
+        marginRight: theme.spacing(1),
+      },
+    header: {
+      fontWeight:"bold",
+      fontSize: "40px",
+      padding: "2rem",
+    
+    },
+}));
 
 
 const Header = () => {
     const classes = useStyles();
     return (
         <div>
-        <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="flex-start"
-            className={classes.mainContainer}
-            >
-            
-        </Grid>
-            
-        
+          <Container variant="h2" className={classes.header} >
+            Welcome to Leet! 
+          </Container>
+          <div className={classes.root}>
+            <Button variant="contained" size="medium" color="primary" className={classes.btn}>
+              Select Client
+            </Button>
+            <Button variant="contained" size="medium" color="primary" className={classes.btn}>
+              Create a new Client
+            </Button>
+            <Button variant="contained" size="medium" color="primary" className={classes.btn}>
+              Select a PDF
+            </Button>
+            <input
+                accept="image/*"
+                className={classes.input}
+                id="contained-button-file"
+                multiple
+                type="file"
+            />
+            <label htmlFor="contained-button-file">
+                <Button variant="contained" color="primary" component="span">
+                Upload
+                </Button>
+            </label>
+          
+        </div>
         </div>
     )
 }
