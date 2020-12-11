@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import TextField from "@material-ui/core/TextField";
-import { withStyles } from "@material-ui/core/styles";
+
 import { Divider, Typography, makeStyles } from "@material-ui/core";
 
 // import MenuItem from '@material-ui/core/MenuItem';
@@ -11,6 +11,10 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiTextField-root": {
       margin: theme.spacing(1),
       width: "25ch",
+    },
+    header: {
+      fontSize: "30px",
+      color: "black",
     },
   },
 }));
@@ -24,7 +28,7 @@ const Form = ({handleInput, state}) => {
     return (
       <form className={classes.root} noValidate autoComplete="off">
         <div>
-          <Typography>Personal Information</Typography>
+          <Typography className={classes.header}>Personal Information</Typography>
           <TextField
             required
             id="first_name"
@@ -169,7 +173,7 @@ const Form = ({handleInput, state}) => {
 
         <div>
           {/* MAKE A CHECKBOX FOR THIS BEING TRUE FALSE */}
-          <Typography>Spouse Information</Typography>
+          <Typography className={classes.subheader}>Spouse Information</Typography>
           <TextField
             id="spouse_first_name"
             label="Spouse Fist Name"
@@ -262,7 +266,7 @@ const Form = ({handleInput, state}) => {
         <Divider />
         <div>
           {/* MAKE A CHECKBOX FOR THIS BEING TRUE FALSE */}
-          <Typography>Foreign ADDRESS</Typography>
+          <Typography className={classes.subheader}>Foreign ADDRESS</Typography>
           <TextField
             id="foreign_address_one"
             label="Foreign Address One"

@@ -37,7 +37,9 @@ const Footer = () => {
 
     return(
         <div className={classes.footerContainer}>
-            <Typography className={classes.subHeadingTwo}>Created & Designed by: </Typography>
+            <Typography className={classes.subHeadingTwo}>
+            Created & Designed by: 
+            </Typography>
             <BottomNavigation width="auto" style={{background: "#1d242b"}}>
             <Typography>
               Ian Astesana
@@ -77,8 +79,8 @@ const Footer = () => {
                   icon={<GitHubIcon/>}
               /> 
           </Typography> 
-      </BottomNavigation>
-        </div>
+        </BottomNavigation>
+      </div>
        
     );
 }
