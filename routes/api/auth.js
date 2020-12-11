@@ -5,6 +5,11 @@ const passport = require('passport');
 const router = express.Router();
 const User = require('../models/Users');
 
+router.get("/test", function(req, res){
+	console.log("you hit me!")
+	res.send(console.log("this is the back end"))
+})
+
 router.post("/register", function(req, res){
     let user = new User();
     console.log('req.body', req.body);

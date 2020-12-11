@@ -28,7 +28,7 @@ const Form = ({handleInput, state}) => {
     return (
       <form className={classes.root} noValidate autoComplete="off">
         <div>
-          <Typography className={classes.header}>Personal Information</Typography>
+          <Typography varient="h4" className={classes.heading}>Personal Information</Typography>
           <TextField
             required
             id="first_name"

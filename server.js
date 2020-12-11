@@ -60,7 +60,10 @@ app.use(passport.session());
 // require("./passportConfig")(passport);
 
 //----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
-
+app.get("/test", (req, res) => {
+  console.log("you ")
+  res.send("hI, Im on the font end now!")
+})
 // Routes
 // app.post("/login", (req, res, next) => {
 //   passport.authenticate("local", (err, user, info) => {

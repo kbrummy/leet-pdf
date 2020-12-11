@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Box } from '@material-ui/core';
+
 import Header from '../../components/Header';
 import Divider from '@material-ui/core/Divider';
 import Sidebar from '../Sidebar'
@@ -48,17 +49,17 @@ const Dashboard = () => {
             <Divider />
             <Grid container spacing={3}>
               
-                <Grid item xs={2}>
-                    <Sidebar />
+                <Grid item xs={3}>
+                    <Preview />
+              
                 </Grid>
 
-                <Grid item xs={7} className={classes.profile}>
+                <Grid item xs={6} className={classes.profile}>
                     <Profile />
                 </Grid>
                 <Grid item xs={3} className={classes.data}>
                     <Box className={classes.preview}>
-                    {/* <Data /> */}
-                    <Preview />
+                        <Sidebar />
                     </Box>
                
                 </Grid>
