@@ -1,29 +1,40 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
-// import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Card } from '@material-ui/core';
-import Data from './Data';
+import { Grid, Box } from '@material-ui/core';
+// import Data from './Data';
 import Profile from '../Profile';
 import Header from '../../components/Header';
 import Divider from '@material-ui/core/Divider';
+import Sidebar from '../Sidebar'
+import Preview from '../Preview';
 
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      flexGrow: 1,
-      height:"100%",
-      width:"100%",
-      display:"block",
+    //   display:"block",
+    //   height:"100%",
+    //   width:"100%",
+    //   display:"block",
     },
     paper: {
-      height: 140,
+      height: 500,
       width: 100,
     },
     control: {
       padding: theme.spacing(2),
     },
+    // data: {
+    //     height:"100%",
+    //     alignItem: "center",
+    // },
+    preview: {
+        alignContent: "center",
+        justifyContent: "center",
+        textAlign: "center",
+    },
+
   }));
 
 const Dashboard = () => {
@@ -42,21 +53,22 @@ const Dashboard = () => {
             <Grid container spacing={3}>
               
                 <Grid item xs={2}>
-                  
+                    <Sidebar />
                 </Grid>
 
-
-                <Grid item xs={7}>
-                    <Card className={classes.profile}>
-                        <Profile />
-                    </Card>
+                <Grid item xs={7} className={classes.profile}>
+                    <Profile />
                 </Grid>
-                <Grid item xs={3}>
-                    <Data />
+                <Grid item xs={3} className={classes.data}>
+                    <Box className={classes.preview}>
+                    {/* <Data /> */}
+                    <Preview />
+                    </Box>
+               
                 </Grid>
 
             </Grid>
-            
+            <Divider />
            <Footer />
         </div>
     )
