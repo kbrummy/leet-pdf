@@ -6,11 +6,6 @@ console.log("testing");
 config.apiTokenId = process.env.DOCSPRING;
 config.apiTokenSecret = process.env.SECRET;
 client = new DocSpring.Client(config);
-// client.testAuthentication(function (error, response) {
-//   if (error) throw error
-//   console.log("DocSpring Setup Acquired", response)
-// })
-// module.exports = client;
 
 function generateDs11(req, res) {
   var template_id = "tpl_aD7H2ZgJRE54nLMCb9";
