@@ -1,18 +1,5 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// ADD Redirect above when login is done
-// import jwt_decode from "jwt-decode";
-// import setAuthToken from "./utils/setAuthToken";
-
-// import { setCurrentUser, logoutUser } from "./actions/authActions";
-// import { Provider } from "react-redux";
-// import store from "./store";
-
-// import Register from "./components/auth/Register";
-// import Login from "./components/auth/Login";
-// import PrivateRoute from "./components/private-route/PrivateRoute";
-// import Dashboard from "./components/dashboard/Dashboard";
-
 import CssBaseline from "@material-ui/core/CssBaseline";
 import "./App.css";
 import Dashboard from "./pages/Dashboard/index";
@@ -21,11 +8,8 @@ import Register from "./pages/Register/index";
 import Landing from "./pages/Landing/index";
 import PrivateRoute from "./components/PrivateRoute/index";
 import Create from "./pages/CreateNewPDF/index";
-import Profile from "./pages/Profile/index";
 import ProfilePage from "./pages/ProfilePage/index";
 import Saved from "./pages/Saved/index";
-// import NoMatch from "./pages/NoMatch/index";
-// import Footer from "./components/Footer";
 
 // Check for token to keep user logged in
 // if (localStorage.jwtToken) {
