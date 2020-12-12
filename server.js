@@ -85,10 +85,12 @@ const newUser = new User({
   username: req.body.username,
   password: hashedPassword,
 });
-await newUser.save();
-res.send("User Created");
- 
- 
+
+async function userCreated() {
+    await newUser.save();
+    res.send("User Created");
+};
+userCreated();
 
 app.get("/user", (req, res) => {
   res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
