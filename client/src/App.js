@@ -22,6 +22,7 @@ import Landing from "./pages/Landing/index";
 import PrivateRoute from "./components/PrivateRoute/index";
 import Create from "./pages/CreateNewPDF/index";
 import Profile from "./pages/Profile/index";
+import ProfilePage from "./pages/ProfilePage/index";
 import Saved from "./pages/Saved/index";
 // import NoMatch from "./pages/NoMatch/index";
 // import Footer from "./components/Footer";
@@ -60,7 +61,7 @@ class App extends Component {
           <Route exact path="/saved" component={Saved} />
           <Route exact path="/create" component={Create} />
           <Switch>
-            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/profile" component={ProfilePage} />
             <Route exact path="/dashboard" component={Dashboard} />
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
           </Switch>

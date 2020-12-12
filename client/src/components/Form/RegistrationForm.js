@@ -2,11 +2,13 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 
 import { Divider, Typography, makeStyles } from "@material-ui/core";
+import SaveProfileBTN from '../Button/SaveProfileBTN';
+import PreviewBTN from '../Button/PreviewBTN';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
-import AntSwitch from '../../components/Button/AntSwitch';
+import AntSwitch from '/AntSwitch';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -349,6 +351,8 @@ const Form = ({handleInput, state}) => {
           />
         </div>
         <Divider />  
+        <PreviewBTN state={state} />
+        <SaveProfileBTN />
       </form>
     );
   }

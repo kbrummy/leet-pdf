@@ -1,9 +1,8 @@
 import React from 'react';
-
 import { Typography, Card } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Navbar from '../../components/Navbar';
-import Form from '../../components/Form/Form';
+// import Form from '../../components/Form/Form';
 
 const useStyles = makeStyles((theme) => ({
     mainContainer: {
@@ -22,14 +21,15 @@ const useStyles = makeStyles((theme) => ({
 
 const Create = () => {
     const classes = useStyles();
+
     return (
         <div>
         <Navbar />
-        <Card Grid className={classes.mainContainer}>
+        <Card className={classes.mainContainer}>
             <Typography varient="h3" className={classes.heading}>
                 CREATE NEW PDF
             </Typography>
-            <Form />
+            {/* <Form /> */}
         </Card>
         </div>
     )
