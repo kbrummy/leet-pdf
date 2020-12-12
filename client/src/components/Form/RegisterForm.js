@@ -8,27 +8,7 @@ import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
-// import MenuItem from '@material-ui/core/MenuItem';
-// import Checkbox from '@material-ui/core/Checkbox';
-
-// const gender = [ 
-//     {
-//         value: 'Male',
-//         label: 'Male',
-//     },
-//     {
-//         value: 'Female',
-//         label: 'Female',
-//     },
-//     {
-//         value: 'Nonbinary',
-//         label: 'Nonbinary',
-//     },
-//     {
-//         value: 'None or a comnbination',
-//         label: 'None or a comnbination',
-//     },
-// ];
+import AntSwitch from '../Button/AntSwitch';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -55,10 +35,8 @@ const useStyles = makeStyles((theme) => ({
         background: "#dee3e2",
     },
 
-  }));
+}));
 
-
-  
 const Form = () => {
     const classes = useStyles();
     const [gender, setGender] = React.useState('');
@@ -66,9 +44,6 @@ const Form = () => {
     const handleChange = (event) => {
       setGender(event.target.value);
     };
-    // const [gender, setGender] = React.useState('Male');
-    // const handleChange = (event) => {
-    //     setGender(event.target.value);
     return ( 
         <div className={classes.root}>
             <form className={classes.form} noValidate autoComplete="off">
@@ -215,7 +190,10 @@ const Form = () => {
                 <Divider />
                 <div className={classes.spouse}>
                 {/* MAKE A CHECKBOX FOR THIS BEING TRUE FALSE */}
-                    <Typography className={classes.subHeading}>Spouse Information</Typography>
+                    <Typography className={classes.subHeading}>
+                    Do you have a spouse and want to store their information?
+                        <AntSwitch /> 
+                    </Typography>
                     <TextField
                         id="spouse_first_name"
                         label="Spouse Fist Name"
@@ -265,6 +243,11 @@ const Form = () => {
                         color="secondary"
                     /> 
                     {/* MAKE A CHECKBOX FOR THIS BEING TRUE FALSE */}
+                    <Typography>
+                        Does your spouse live at the same address? 
+                        <AntSwitch  />
+                    </Typography>
+                  
                     <TextField
                         id="spouse_address_one"
                         label="Spouse Address One"
@@ -308,7 +291,11 @@ const Form = () => {
                 <Divider />
                 <div className={classes.foreign}>
                     {/* MAKE A CHECKBOX FOR THIS BEING TRUE FALSE */}
-                    <Typography className={classes.subHeading}>Foreign Address</Typography>
+                    <Typography className={classes.subHeading}>
+                    Do you have a foreign address?
+                     <AntSwitch />
+                    </Typography>
+                    
                     <TextField
                         id="foreign_address_one"
                         label="Foreign Address One"

@@ -4,17 +4,12 @@ const docspring = require("./test/docspring");
 const express = require("express");
 const cors = require("cors");
 const passport = require("passport");
-//const passportLocal = require("passport-local").Strategy;
 const cookieParser = require("cookie-parser");
-//const bcrypt = require("bcryptjs");
 const session = require("express-session");
-//const bodyParser = require("body-parser");
 const routes = require("./routes");
 require('./models/user');
-
 const app = express();
 require('./config/passport')(passport);
-
 const PORT = process.env.PORT || 3001;
 
 //const User = require("./user");
@@ -42,6 +37,7 @@ mongoose.connection.on('connected', () => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
+  // handles communication between react and server for data transfer 
   cors({
     origin: "http://localhost:3000", // <-- location of the react app were connecting to
     credentials: true,
