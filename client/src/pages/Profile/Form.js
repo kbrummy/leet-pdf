@@ -1,10 +1,14 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 
-import { Divider, Typography, makeStyles } from "@material-ui/core";
-
-// import MenuItem from '@material-ui/core/MenuItem';
-// import Checkbox from '@material-ui/core/Checkbox';
+import { Divider, Typography, makeStyles, Grid } from "@material-ui/core";
+import SaveProfileBTN from '../../components/Button/SaveProfileBTN';
+import PreviewBTN from '../../components/Button/PreviewBTN';
+import Select from '@material-ui/core/Select';
+import FormControl from '@material-ui/core/FormControl';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
+import AntSwitch from '../../components/Button/AntSwitch';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,19 +20,39 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "30px",
       color: "black",
     },
-  },
+    form: {
+      backgroundColor: "white",
+      padding: "4rem"
+    },
+    personal: {
+        background: "#white",
+        alignText: "center",
+    },
+    subHeading: {
+        fontSize: "40px",
+    },
+    BTN: {
+        justifyContent: "right",
+    },
+    formControl: {
+        background: "#dee3e2",
+    },
+    },
 }));
 
 const Form = ({handleInput, state}) => {
 
-    const classes = useStyles();
-    // const [gender, setGender] = React.useState('Male');
-    // const handleChange = (event) => {
-    //     setGender(event.target.value);
+  const classes = useStyles();
+  const [gender, setGender] = React.useState('');
+
+  const handleChange = (event) => {
+    setGender(event.target.value);
+  };
+
     return (
       <form className={classes.root} noValidate autoComplete="off">
-        <div>
-          <Typography varient="h4" className={classes.heading}>Personal Information</Typography>
+        <div className={classes.personal}>
+        <Typography className={classes.subHeading}>Personal Information</Typography>
           <TextField
             required
             id="first_name"
@@ -65,21 +89,29 @@ const Form = ({handleInput, state}) => {
             color="secondary"
           />
           {/* GENDER */}
-          {/* <TextField
-                id="gender"
-                select
-                label="Gender"
-                value={gender}
-                onChange={handleChange}
-                helperText="Please select your gender"
-                variant="outlined"
-                >
-                {gender.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                    </MenuItem>
-                ))}
-                </TextField> */}
+          <FormControl 
+          variant="outlined"  
+          color="secondary"
+            className={classes.formControl}
+            >
+              <InputLabel 
+              id="gender">
+              Gender
+              </InputLabel>
+              <Select
+              labelId="gender"
+              id="gender"
+              value={gender}
+              onChange={handleChange}
+              >
+                  <MenuItem value="">
+                      <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={"Male"}>Male</MenuItem>
+                  <MenuItem value={"Female"}>Female</MenuItem>
+                  <MenuItem value={"Other"}>Other</MenuItem>
+              </Select>
+          </FormControl>
           <TextField
             required
             id="ss_number"
@@ -118,22 +150,24 @@ const Form = ({handleInput, state}) => {
             variant="outlined"
             color="secondary"
           />
-          <TextField
+          {/* <TextField
             required
             id="address_one"
             label="Address One"
             variant="outlined"
             color="secondary"
-          />
+          /> */}
           {/* USE FOR LARGER ADDRESS */}
-          {/* <TextField
-                id="outlined-multiline-static"
-                label="Multiline"
-                multiline
-                rows={4}
-                defaultValue="Default Value"
-                variant="outlined"
-                /> */}
+          <TextField
+            required
+            id="address_one"
+            label="Address One"
+            multiline
+            rows={2}
+            defaultValue="Default Value"
+            variant="outlined"
+            color="secondary"
+            />
           <TextField
             id="address_two"
             label="Address Two"
@@ -173,7 +207,10 @@ const Form = ({handleInput, state}) => {
 
         <div>
           {/* MAKE A CHECKBOX FOR THIS BEING TRUE FALSE */}
-          <Typography className={classes.subheader}>Spouse Information</Typography>
+          <Typography className={classes.subHeading}>
+          Do you have a spouse and want to store their information?
+            <AntSwitch /> 
+          </Typography>
           <TextField
             id="spouse_first_name"
             label="Spouse Fist Name"
@@ -223,6 +260,10 @@ const Form = ({handleInput, state}) => {
             color="secondary"
           />
           {/* MAKE A CHECKBOX FOR THIS BEING TRUE FALSE */}
+          <Typography>
+            Does your spouse live at the same address? 
+            <AntSwitch  />
+          </Typography>
           <TextField
             id="spouse_address_one"
             label="Spouse Address One"
@@ -266,7 +307,9 @@ const Form = ({handleInput, state}) => {
         <Divider />
         <div>
           {/* MAKE A CHECKBOX FOR THIS BEING TRUE FALSE */}
-          <Typography className={classes.subheader}>Foreign ADDRESS</Typography>
+          <Typography className={classes.subHeading}> Do you have a foreign address?
+            <AntSwitch />
+          </Typography>
           <TextField
             id="foreign_address_one"
             label="Foreign Address One"
@@ -307,8 +350,7 @@ const Form = ({handleInput, state}) => {
             color="secondary"
           />
         </div>
-        <Divider />
-        <div></div>
+        <Divider />  
       </form>
     );
   }

@@ -29,12 +29,6 @@ import TurnedInIcon from "@material-ui/icons/TurnedIn";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
-// icons
-// import Profile from "../../images/icons/profile.png";
-//import CreatePDF from "../../images/icons/create.png";
-// import SavedPDF from "../../images/icons/saved.png";
-// import Logout from "../../images/icons/logout.png";
-//
 import avatar from "../../static/Leet.jpg";
 
 // CSS STYLES
@@ -53,10 +47,14 @@ const useStyles = makeStyles((theme) => ({
   listItem: {
     color: "white",
   },
-  // subHeadingTwo: {
-  //   textAlign: "right",
-  //   padding: "0.5rem",
-  // },
+
+  names: {
+    marginLeft: "auto",
+    color: "white",
+  },
+  root: {
+    color: "white",  
+  },
 }));
 
 const menuItems = [
@@ -140,42 +138,39 @@ const Navbar = () => {
             >
               {sideList("left")}
             </MobileLeftMenuSlider>
+        
+            <Box m={1} className={classes.names}>
+              Ian Astesana
+              <BottomNavigationAction
+                label="Ian Astesana"
+                href="https://github.com/Greezon"
+                target="_blank"
+                className={classes.root}
+                icon={<GitHubIcon />}
+              />
+              Kristin Brumfield
+              <BottomNavigationAction
+                href="https://github.com/kbrummy"
+                target="_blank"
+                className={classes.root}
+                icon={<GitHubIcon />}
+                />
+              Alan Fernandes
+              <BottomNavigationAction
+                href="https://github.com/anoblefernandes"
+                target="_blank"
+                className={classes.root}
+                icon={<GitHubIcon />}
+              />
+              Alicia Gorton
+              <BottomNavigationAction
+                href="https://github.com/aliciagorton"
+                target="_blank"
+                className={classes.root}
+                icon={<GitHubIcon />}
+              />
+            </Box>
           </Toolbar>
-          <Box textAlign="right" m={1}>
-            Ian Astesana
-            <BottomNavigationAction
-              label="Ian Astesana"
-              href="https://github.com/Greezon"
-              target="_blank"
-              className={classes.root}
-              style={{ padding: 0 }}
-              icon={<GitHubIcon />}
-            />
-            Kristin Brumfield
-            <BottomNavigationAction
-              href="https://github.com/kbrummy"
-              target="_blank"
-              className={classes.root}
-              style={{ padding: 0 }}
-              icon={<GitHubIcon />}
-            />
-            Alan Fernandes
-            <BottomNavigationAction
-              href="https://github.com/anoblefernandes"
-              target="_blank"
-              className={classes.root}
-              style={{ padding: 0 }}
-              icon={<GitHubIcon />}
-            />
-            Alicia Gorton
-            <BottomNavigationAction
-              href="https://github.com/aliciagorton"
-              target="_blank"
-              className={classes.root}
-              style={{ padding: 0 }}
-              icon={<GitHubIcon />}
-            />
-          </Box>
         </AppBar>
       </Box>
     </>
