@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, Card } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Form from '../../components/Form/EmptyForm';
+// import Form from '../../components/Form/EmptyForm';
 import Navbar from '../../components/Navbar';
 
 const useStyles = makeStyles((theme) => ({
@@ -28,7 +28,7 @@ const Saved = () => {
             <Typography varient="h3" className={classes.heading}>
             Saved PDFs
             </Typography>
-            <Form />
+            {/* <Form /> */}
         </Card>
         </div>
     )

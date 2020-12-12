@@ -1,7 +1,7 @@
 import React from "react";
-// import Navbar from "../../components/Navbar";
-import { Grid } from "@material-ui/core";
-import Form from "./Form";
+import Navbar from "../../components/Navbar";
+import { Grid,Typography } from "@material-ui/core";
+import Form from "../Profile/Form.js";
 import SaveProfileBTN from "../../components/Button/SaveProfileBTN";
 import Card from "@material-ui/core/Card";
 import PreviewBTN from "../../components/Button/PreviewBTN";
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 },
 }));
 
-const Profile = () => {
+const ProfilePage = () => {
   const classes = useStyles();
 
   const [state, setState] = React.useState({});
@@ -35,11 +35,15 @@ const Profile = () => {
 
   return (
     <div>
-      {/* <Navbar /> */}
-      <Grid container className={classes.root} spacing={0} item xs={12}>
+      <Navbar />
+      <Grid  className={classes.mainContainer} spacing={2} item xs={12}>
+      <Typography varient="h3" style={{padding: "1rem"}}  className={classes.heading}>
         <Fab color="secondary" aria-label="edit">
           <EditIcon />
         </Fab>
+      Profile   
+      </Typography>
+     
         <Card>
           <Form handleInput={handleInput} state={state} />
           <PreviewBTN state={state} />
@@ -50,4 +54,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default ProfilePage;

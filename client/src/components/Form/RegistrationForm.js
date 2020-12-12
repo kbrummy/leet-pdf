@@ -1,12 +1,14 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 
-import { Divider, Typography, makeStyles, Grid } from "@material-ui/core";
+import { Divider, Typography, makeStyles } from "@material-ui/core";
+import SaveProfileBTN from '../Button/SaveProfileBTN';
+import PreviewBTN from '../Button/PreviewBTN';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
-import AntSwitch from '../../components/Button/AntSwitch';
+import AntSwitch from '/AntSwitch';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -205,13 +207,10 @@ const Form = ({handleInput, state}) => {
 
         <div>
           {/* MAKE A CHECKBOX FOR THIS BEING TRUE FALSE */}
-          <Grid col={2}>
-            <Typography className={classes.subHeading}>
-            Do you have a spouse and want to store their information?
-              <AntSwitch /> 
-            </Typography>
-          </Grid>
-    
+          <Typography className={classes.subHeading}>
+          Do you have a spouse and want to store their information?
+            <AntSwitch /> 
+          </Typography>
           <TextField
             id="spouse_first_name"
             label="Spouse Fist Name"
@@ -352,6 +351,8 @@ const Form = ({handleInput, state}) => {
           />
         </div>
         <Divider />  
+        <PreviewBTN state={state} />
+        <SaveProfileBTN />
       </form>
     );
   }
