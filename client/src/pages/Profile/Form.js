@@ -1,7 +1,7 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 
-import { Divider, Typography, makeStyles } from "@material-ui/core";
+import { Divider, Typography, makeStyles, Grid } from "@material-ui/core";
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -205,10 +205,13 @@ const Form = ({handleInput, state}) => {
 
         <div>
           {/* MAKE A CHECKBOX FOR THIS BEING TRUE FALSE */}
-          <Typography className={classes.subHeading}>
-          Do you have a spouse and want to store their information?
-            <AntSwitch /> 
-          </Typography>
+          <Grid col={2}>
+            <Typography className={classes.subHeading}>
+            Do you have a spouse and want to store their information?
+              <AntSwitch /> 
+            </Typography>
+          </Grid>
+    
           <TextField
             id="spouse_first_name"
             label="Spouse Fist Name"
