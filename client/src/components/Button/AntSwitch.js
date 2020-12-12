@@ -1,5 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import FormGroup from '@material-ui/core/FormGroup';
 import Switch from '@material-ui/core/Switch';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -38,22 +39,28 @@ const AntSwitch = withStyles((theme) => ({
   checked: {},
 }))(Switch);
 
-export default function {
+export default function CustomizedSwitches() {
+  const [state, setState] = React.useState({
+    checkedA: true,
+    checkedB: true,
+    checkedC: true,
+  });
 
   const handleChange = (event) => {
-      setState({ ...state, [event.target.name]: event.target.checked });
-    };
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
 
   return (
+    <FormGroup>
       <Typography component="div">
-      <Grid component="label" container alignItems="center" spacing={1}>
-        <Grid item>Off</Grid>
-        <Grid item>
-          <AntSwitch checked={state.checkedC} onChange={handleChange} name="checkedC" />
+        <Grid component="label" container alignItems="center" spacing={1}>
+          <Grid item>False</Grid>
+          <Grid item>
+            <AntSwitch checked={state.checkedC} onChange={handleChange} name="checkedC" />
+          </Grid>
+          <Grid item>True</Grid>
         </Grid>
-        <Grid item>On</Grid>
-      </Grid>
-    </Typography>
+      </Typography>
+    </FormGroup>
   );
-};
-
+}
