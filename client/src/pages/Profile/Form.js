@@ -350,13 +350,7 @@ const Form = ({handleInput, state}) => {
             color="secondary"
           />
         </div>
-        <Divider />
-        <div className={classes.BTN}>
-          <Grid>
-              <SaveProfileBTN />
-              <PreviewBTN />
-          </Grid>        
-        </div>  
+        <Divider />  
       </form>
     );
   }
