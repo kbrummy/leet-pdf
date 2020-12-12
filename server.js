@@ -9,9 +9,10 @@ const session = require("express-session");
 const routes = require("./routes");
 require('./models/user');
 const app = express();
-require('./config/passport')(passport);
+// require('./config/passport')(passport);
 const PORT = process.env.PORT || 3001;
 
+// commented out cause ./user does not exist. Please check in before uncommenting -Ian
 //const User = require("./user");
 //const routes = require("./routes");
 
@@ -81,16 +82,16 @@ app.get("/test", (req, res) => {
 //     if (!doc) {
 //       const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-const newUser = new User({
-  username: req.body.username,
-  password: hashedPassword,
-});
+// const newUser = new User({
+//   username: req.body.username,
+//   password: hashedPassword,
+// });
 
-async function userCreated() {
-    await newUser.save();
-    res.send("User Created");
-};
-userCreated();
+// async function userCreated() {
+//     await newUser.save();
+//     res.send("User Created");
+// };
+// userCreated();
 
 app.get("/user", (req, res) => {
   res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
