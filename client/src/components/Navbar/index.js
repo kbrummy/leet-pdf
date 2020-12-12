@@ -24,7 +24,7 @@ import {
 } from "@material-ui/icons";
 import MenuOpenIcon from "@material-ui/icons/MenuOpen";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
-import AddBoxIcon from "@material-ui/icons/AddBox";
+//import AddBoxIcon from "@material-ui/icons/AddBox";
 import TurnedInIcon from "@material-ui/icons/TurnedIn";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import GitHubIcon from "@material-ui/icons/GitHub";
@@ -66,14 +66,14 @@ const menuItems = [
   },
   {
     listIcon: <AccountBoxIcon />,
-    listTest: "Profile",
+    listTest: "Create New Profile",
     listPath: "/profile",
   },
-  {
-    listIcon: <AddBoxIcon />,
-    listTest: "Create New PDF",
-    listPath: "/create",
-  },
+  // {
+  //   listIcon: <AddBoxIcon />,
+  //   listTest: "Create New PDF",
+  //   listPath: "/create",
+  // },
   {
     listIcon: <TurnedInIcon />,
     listTest: "Saved PDF's",
