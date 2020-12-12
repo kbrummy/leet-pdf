@@ -10,20 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import avatar from "../../static/Leet.jpg";
 import Axios from "axios";
-
-
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="textSecondary" align="center">
-//       {"Copyright © "}
-//       <Link color="inherit" href="https://material-ui.com/">
-//         Leet
-//       </Link>{" "}
-//       {new Date().getFullYear()}
-//       {"."}
-//     </Typography>
-//   );
-// }
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -50,44 +37,26 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Login() {
+  let history = useHistory();
   const classes = useStyles();
-  const [registerUsername, setRegisterUsername] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
-  const [loginUsername, setLoginUsername] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
-  const [data, setData] = useState(null);
-  const register = () => {
-    Axios({
-      method: "POST",
-      data: {
-        username: registerUsername,
-        password: registerPassword,
-      },
-      withCredentials: true,
-      url: "http://localhost:3002/register",
-    }).then((res) => console.log(res));
-  };
+  const [email_address, set_email_address] = useState("");
+  const [password, set_password] = useState("");
   const signin = () => {
-    Axios({
-      method: "POST",
-      data: {
-        username: loginUsername,
-        password: loginPassword,
-      },
-      withCredentials: true,
-      url: "http://localhost:4000/login",
-    }).then((res) => console.log(res));
+    const userdata = {
+      email_address: email_address, 
+      password: password,
+    }
+    Axios
+    .post('http://localhost:3001/auth/login', userdata)
+    .then(res => {
+      if (res.success) {
+        Axios.defaults.headers.common["Authorization"] = res.token
+        localStorage.setItem("jwtToken", res.token)
+      }
+      history.push("/dashboard")
+    })
   };
-  const getUser = () => {
-    Axios({
-      method: "GET",
-      withCredentials: true,
-      url: "http://localhost:4000/user",
-    }).then((res) => {
-      setData(res.data);
-      console.log(res.data);
-    });
-  };
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -100,30 +69,39 @@ function Login() {
       </Typography>
       <form className={classes.form} noValidate>
         <TextField
+          required
+          id="email_address"
+          label="Email Address"
+          name="email_address"
+          type="email"
+          placeholder="Email Address"
           variant="outlined"
           margin="normal"
-          required
+          color="secondary"
           fullWidth
-          id="email"
-          label="Email"
-          type="email"
-          name="email"
           autoComplete="email"
           autoFocus
-          onChange={(e) => setLoginUsername(e.target.value)}
+           // onChange={handleInput}
+          // value={state.email_address}
+          onChange={(e) => set_email_address(e.target.value)}
         />
         <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            placeholder="password"
-            onChange={(e) => setLoginPassword(e.target.value)}
+          required
+          id="password"
+          label="Password"
+          type="password"
+          name="password"
+          placeholder="********"
+          variant="outlined"
+          margin="normal"
+          color="secondary"
+          fullWidth
+          autoFocus
+          autoComplete="current-password"
+          // value={state.password}
+          // onChange={handleInput}
+          onChange={(e) => 
+            set_password(e.target.value)} 
           />
       </form>
         <Button  
@@ -149,29 +127,6 @@ function Login() {
             </Grid>
           </Grid>
       </div>
-
-
-
-      {/* <div>
-        <h1>Register</h1>
-        <input
-          placeholder="username"
-          onChange={(e) => setRegisterUsername(e.target.value)}
-        />
-        <input
-          placeholder="password"
-          onChange={(e) => setRegisterPassword(e.target.value)}
-        />
-        <button onClick={register}>Submit</button>
-      </div> */}
-
-      {/* <div>
-        <h1>Get User</h1>
-        <button onClick={getUser}>Submit</button>
-        {data ? <h1>Welcome Back {data.username}</h1> : null}
-      </div> */}
-
-
     </Container>
   );
 }

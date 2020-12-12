@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -6,27 +6,16 @@ import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-
+import Copyright from './Copyright';
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import avatar from "../../static/Leet.jpg";
 // import { Link } from "react-router-dom";
 import Axios from "axios"
+import { StateEnum } from "docspring/src/model/CombinedSubmission";
+import { useHistory } from 'react-router-dom';
 
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Leet
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -52,9 +41,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignUp = () => {
-  const classes = useStyles();
 
+
+const SignUp = () => {
+  let history = useHistory();
+  const classes = useStyles();
+  const [state, setState] = useState({});
+  const handleInput = (e) => {
+    let { id, value } = e.target;
+    setState({ ...state, [id]: value });
+  };
+  // const [first_name, set_first_name] = useState("")
+
+  // handleInput(e) {
+
+  // }
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -69,48 +70,62 @@ const SignUp = () => {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                autoFocus
+              required
+              id="first_name"
+              label="First Name"
+              name="first_name"
+              placeholder="First Name"
+              variant="outlined"
+              color="secondary"
+              value={state.first_name}
+              onChange={handleInput}
+              fullWidth
+              autoFocus
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
+              required
+              id="last_name"
+              label="Last Name"
+              name="last_name"
+              placeholder="Last Name"
+              variant="outlined"
+              color="secondary"
+              value={state.last_name}
+              onChange={handleInput}
+              fullWidth
+              autoFocus
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+              required
+              id="email_address"
+              label="Email Address"
+              name="email_address"
+              placeholder="Email Address"
+              variant="outlined"
+              color="secondary"
+              value={state.email_address}
+              onChange={handleInput}
+              fullWidth
+              autoFocus
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
+              required
+              id="password"
+              label="Password"
+              name="password"
+              placeholder="********"
+              variant="outlined"
+              color="secondary"
+              value={state.password}
+              onChange={handleInput}
+              fullWidth
+              autoFocus
               />
             </Grid>
           </Grid>
@@ -120,13 +135,16 @@ const SignUp = () => {
             variant="contained"
             color="secondary"
             className={classes.submit}
-            onClick={()=>{Axios.get('http://localhost:3001/test')
-   .then(data => {
-     console.log(data)
-   })
-   .catch(err => console.log(err))}
-}
-            
+            onClick={(event)=>{
+              event.preventDefault()
+              console.log("log State", state)
+              Axios.post('http://localhost:3001/auth/register', state)
+          .then(data => {
+            history.push("/login")
+            console.log(data)
+          })
+          .catch(err => console.log(err))}
+          }
           >
             Sign Up
           </Button>
