@@ -51,9 +51,10 @@ const useStyles = makeStyles((theme) => ({
   names: {
     marginLeft: "auto",
     color: "white",
+    padding: "10px",
   },
   root: {
-    color: "white",  
+    color: "white",
   },
 }));
 
@@ -128,7 +129,7 @@ const Navbar = () => {
             <IconButton onClick={toggleSlider("left", true)}>
               <MenuOpenIcon style={{ color: "red" }} />
             </IconButton>
-            <Typography variant="h5" style={{ color: "#dee3e2" }}>
+            <Typography variant="h4" style={{ color: "#dee3e2" }}>
               Leet
             </Typography>
             <MobileLeftMenuSlider
@@ -138,7 +139,7 @@ const Navbar = () => {
             >
               {sideList("left")}
             </MobileLeftMenuSlider>
-        
+
             <Box m={1} className={classes.names}>
               Ian Astesana
               <BottomNavigationAction
@@ -150,13 +151,15 @@ const Navbar = () => {
               />
               Kristin Brumfield
               <BottomNavigationAction
+                label="Kristin Brumfield"
                 href="https://github.com/kbrummy"
                 target="_blank"
                 className={classes.root}
                 icon={<GitHubIcon />}
-                />
+              />
               Alan Fernandes
               <BottomNavigationAction
+                label="Alan Fernandes"
                 href="https://github.com/anoblefernandes"
                 target="_blank"
                 className={classes.root}
@@ -164,6 +167,7 @@ const Navbar = () => {
               />
               Alicia Gorton
               <BottomNavigationAction
+                label="Alicia Gorton"
                 href="https://github.com/aliciagorton"
                 target="_blank"
                 className={classes.root}
