@@ -35,7 +35,7 @@ export default function PreviewBTN({ state }) {
             res.json().then((json) => {
               console.log(json);
               window.open(json.href, "_blank");
-            });
+            }).catch(error => alert(error.message));
           });
         }}
       >
