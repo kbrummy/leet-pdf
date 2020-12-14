@@ -26,8 +26,10 @@ export default function SaveProfileBTN() {
         component={Link}
         to="/saved"
         onClick={(e) => {
-          e.preventDefault()
-        axios.post("api/profile",
+        const url = new URL(window.location.origin);
+        url.port = 3001;
+        url.pathname = "/api/profile";
+        axios.post(url.href,
         {
           first_name: "state.first_name",
           middle_name: "state.middle_name",
