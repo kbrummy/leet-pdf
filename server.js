@@ -27,8 +27,6 @@ mongoose.connection.on('connected', () => {
   console.log('Mongoose is connected.');
 })
 
-// Middleware
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -41,6 +39,21 @@ app.use(
 
 app.use(cookieParser("secretcode"));
 
+app.get("/test", (req, res) => {
+  console.log("you ")
+  res.send("hI, Im on the font end now!")
+})
+
+app.post("/createpdf", function (req, res) {
+  // save data to database here
+  docspring.generateDs11(req, res);
+});
+//----------------------------------------- END OF ROUTES---------------------------------------------------
+// Routes needs to go before middleware cause middleware has a catchall.
+// Middleware
+
+
+
 app.use(routes);
 
 app.use(passport.initialize()); 
@@ -52,16 +65,6 @@ const LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(User.authenticate()));
 
 //----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
-app.get("/test", (req, res) => {
-  console.log("you ")
-  res.send("hI, Im on the font end now!")
-})
-
-app.post("/createpdf", function (req, res) {
-  // save data to database here
-  docspring.generateDs11(req, res);
-});
-//----------------------------------------- END OF ROUTES---------------------------------------------------
 //Start Server
 // Start the API server
 app.listen(PORT, function () {
