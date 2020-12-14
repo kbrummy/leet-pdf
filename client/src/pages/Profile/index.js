@@ -21,6 +21,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const url = new URL(window.location.origin);
+url.port = 3001;
+url.pathname = "/api/profile";
+
+fetch(url.href, {
+  method: "GET"
+}).then((res) => {
+  res.json().then((clients) => {
+    // List of clients on the server.
+    console.dir(clients);
+  });
+}).catch(error => alert(error.message));
+
 const Profile = () => {
   const classes = useStyles();
 
@@ -36,7 +49,7 @@ const Profile = () => {
         <Card>
           <Form handleInput={handleInput} state={state} />
           <PreviewBTN state={state} />
-          <SaveProfileBTN />
+          <SaveProfileBTN state={state} />
         </Card>
       </Grid>
     </div>

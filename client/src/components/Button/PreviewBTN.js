@@ -29,6 +29,7 @@ export default function PreviewBTN({ state }) {
 
           fetch(url.href, {
             method: "POST",
+            mode: "cors",
             body: JSON.stringify(state),
             headers: { "Content-Type": "application/json" },
           }).then((res) => {
