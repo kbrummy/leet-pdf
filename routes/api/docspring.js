@@ -9,6 +9,8 @@ client = new DocSpring.Client(config);
 
 function generateDs11(req, res) {
   var template_id = "tpl_aD7H2ZgJRE54nLMCb9";
+  delete req.body._id;
+  delete req.body.__v;
   var submission_data = {
     editable: false,
     data: req.body,

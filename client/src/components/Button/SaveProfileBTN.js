@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SaveProfileBTN({ state }) {
   const classes = useStyles();
-
   return (
     <div>
       <Button

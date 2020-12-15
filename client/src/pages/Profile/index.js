@@ -21,35 +21,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const url = new URL(window.location.origin);
-url.port = 3001;
-url.pathname = "/api/profile";
-
-fetch(url.href, {
-  method: "GET"
-}).then((res) => {
-  res.json().then((clients) => {
-    // List of clients on the server.
-    console.dir(clients);
-  });
-}).catch(error => alert(error.message));
-
-const Profile = () => {
+const Profile = ({handleInput, state}) => {
   const classes = useStyles();
-
-  const [state, setState] = React.useState({});
-  const handleInput = (e) => {
-    let { id, value } = e.target;
-    setState({ ...state, [id]: value });
-  };
-
   return (
     <div>
       <Grid container className={classes.root} spacing={0} item xs={12}>
         <Card>
-          <Form handleInput={handleInput} state={state} />
-          <PreviewBTN state={state} />
-          <SaveProfileBTN state={state} />
+          <Form handleInput={handleInput} state={state.client} />
+          <PreviewBTN state={state.client} />
+          <SaveProfileBTN state={state.client} />
         </Card>
       </Grid>
     </div>

@@ -38,6 +38,49 @@ const useStyles = makeStyles((theme) => ({
 const Dashboard = () => {
   const classes = useStyles();
 
+  const [state, setState] = React.useState({clients : [], clientID: null, client: {}});
+  const handleInput = (e) => {
+    let { id, value } = e.target;
+    setState({ ...state, client: {...state.client, [id]: value }});
+  };
+
+  React.useEffect(() => {
+    const url = new URL(window.location.origin);
+    url.port = 3001;
+    url.pathname = "/api/profile";
+
+    fetch(url.href, {
+      method: "GET",
+    })
+      .then((res) => {
+        res.json().then((clients) => {
+          setState({ ...state, clients : clients });
+        });
+      })
+      .catch((error) => alert(error.message));
+  }, []);
+
+  const handleClientInput = (e) => {
+    let clientId = e.target.dataset.id;
+    if(!clientId) return;
+    setState({ ...state, clientID: clientId});
+    const url = new URL(window.location.origin);
+    url.port = 3001;
+    url.pathname = "/api/profile/" + clientId;
+
+    fetch(url.href, {
+      method: "GET",
+    })
+      .then((res) => {
+        res.json().then((client) => {
+          if(client) {
+            setState({ ...state, client : client });
+          }
+        });
+      })
+      .catch((error) => alert(error.message));
+  };
+
   return (
     <div className={classes.root}>
       <Navbar />
@@ -47,13 +90,12 @@ const Dashboard = () => {
         <Grid item xs={3}>
           <Preview />
         </Grid>
-
         <Grid item xs={6} className={classes.profile}>
-          <Profile />
+          <Profile handleInput={handleInput} state={state} />
         </Grid>
         <Grid item xs={3} className={classes.data}>
           <Box className={classes.preview}>
-            <Sidebar />
+            <Sidebar onClick={handleClientInput} state={state}/>
           </Box>
         </Grid>
       </Grid>

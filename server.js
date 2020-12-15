@@ -1,6 +1,6 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
-const docspring = require("./test/docspring");
+const docspring = require("./routes/api/docspring");
 const express = require("express");
 const cors = require("cors");
 var passport = require("passport");
