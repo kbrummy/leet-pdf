@@ -3,18 +3,16 @@ const mongoose = require("mongoose");
 const docspring = require("./test/docspring");
 const express = require("express");
 const cors = require("cors");
-const passport = require("passport");
+var passport = require("./config/passport");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-const routes = require("./routes");
-require('./models/user');
+
+// const { access } = require("graceful-fs");
 const app = express();
 // require('./config/passport')(passport);
 const PORT = process.env.PORT || 3001;
 
-// commented out cause ./user does not exist. Please check in before uncommenting -Ian
-//const User = require("./user");
-//const routes = require("./routes");
+const routes = require("./routes");
 
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 mongoose.connect(
@@ -54,13 +52,11 @@ app.use(
 app.use(cookieParser("secretcode"));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(routes);
 // require("./passportConfig")(passport);
 
 //----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
-app.get("/test", (req, res) => {
-  console.log("you ")
-  res.send("hI, Im on the font end now!")
-})
+
 // Routes
 // app.post("/login", (req, res, next) => {
 //   passport.authenticate("local", (err, user, info) => {
@@ -93,13 +89,11 @@ app.get("/test", (req, res) => {
 // };
 // userCreated();
 
-app.get("/user", (req, res) => {
-  res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
-});
 app.post("/createpdf", function (req, res) {
   // save data to database here
   docspring.generateDs11(req, res);
 });
+
 //----------------------------------------- END OF ROUTES---------------------------------------------------
 //Start Server
 // Start the API server

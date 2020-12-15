@@ -12,7 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import avatar from "../../static/Leet.jpg";
 // import { Link } from "react-router-dom";
-import Axios from "axios"
+import Axios from "axios";
 
 
 function Copyright() {
@@ -120,7 +120,7 @@ const SignUp = () => {
             variant="contained"
             color="secondary"
             className={classes.submit}
-            onClick={()=>{Axios.get('http://localhost:3001/test')
+            onClick={()=>{Axios.get('http://localhost:3001/auth/register')
    .then(data => {
      console.log(data)
    })
