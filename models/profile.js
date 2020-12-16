@@ -4,31 +4,30 @@ const Schema = mongoose.Schema;
 const profileSchema = new Schema({
   last_name: { type: String, required: true },
   first_name: { type: String, required: true },
-  middle_name: { type: String, required: true },
+  middle_name: { type: String },
   
-  d_o_b: { type: Date, required: true },
+  d_o_b: { type: Date },
   
-  sex: { type: String, required: true },
+  sex: { type: String },
   
   place_of_birth: { 
-    city: {type: String, required: true},
-    state: {type: String, required: true, min: [2, 'Use state abbreviation'], max: [2, 'Use state abbreviation']},
+    city: {type: String},
+    state: {type: String, min: [2, 'Use state abbreviation'], max: [2, 'Use state abbreviation']},
   },
   
-  ss_number: { type: Number, required: true, min: [9, 'All numbers no spaces'], max: [9, 'All numbers no spaces']},
+  ss_number: { type: Number, min: [9, 'All numbers no spaces'], max: [9, 'All numbers no spaces']},
   
   email_address: { type: String, required: true },
   
   phone_number: { type: String, required: true },
   
   address_one: { 
-    number: {type: Number, required: true},
-    street: {type: String, required: true},
-    city: {type: String, required: true},
-    state: {type: String, required: true, min: [2, 'Use state abbreviation'],
-    max: [2, 'Use state abbreviation']},
-    zipcode: {type: String, required: true},
-    country: {type: String, required: true, min: [2, 'Use state abbreviation'],
+    number: {type: Number},
+    street: {type: String},
+    city: {type: String},
+    state: {type: String, min: [2, 'Use state abbreviation'], max: [2, 'Use state abbreviation']},
+    zipcode: {type: String},
+    country: {type: String, min: [2, 'Use state abbreviation'],
     max: [2, 'Use country abbreviation']},
   },
   
