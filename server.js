@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 mongoose.connect(
 
   // "mongodb+srv://{Place Your Username Here!}:{Place Your Password Here!}@cluster0-q9g9s.mongodb.net/test?retryWrites=true&w=majority",
-  process.env.MONGODB_URI || "mongodb://localhost/leetdbteam",
+  process.env.MONGODB_URI || "mongodb://localhost/tranquil-coast-14497",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
