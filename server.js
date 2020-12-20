@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   // handles communication between react and server for data transfer 
   cors({
-    origin: "http://localhost:3000", // <-- location of the react app were connecting to
+    origin: "https://greezon.github.io", // <-- location of the react app were connecting to
     credentials: true,
   })
 );
