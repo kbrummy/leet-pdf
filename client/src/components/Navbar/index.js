@@ -76,7 +76,7 @@ const menuItems = [
   // },
   {
     listIcon: <TurnedInIcon />,
-    listTest: "Saved PDF's",
+    listTest: "Save History",
     listPath: "/saved",
   },
   // Add link to the landing page
