@@ -45,8 +45,8 @@ const Dashboard = () => {
   };
 
   React.useEffect(() => {
-    const url = new URL(window.location.origin);
-    url.port = 3001;
+    const url = new URL("https://tranquil-coast-14497.herokuapp.com/");
+    // url.port = 3001;
     url.pathname = "/api/profile";
 
     fetch(url.href, {
@@ -64,8 +64,8 @@ const Dashboard = () => {
     let clientId = e.target.dataset.id;
     if(!clientId) return;
     setState({ ...state, clientID: clientId});
-    const url = new URL(window.location.origin);
-    url.port = 3001;
+    const url = new URL("https://tranquil-coast-14497.herokuapp.com/");
+    // url.port = 3001;
     url.pathname = "/api/profile/" + clientId;
 
     fetch(url.href, {
