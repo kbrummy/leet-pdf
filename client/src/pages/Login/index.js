@@ -47,7 +47,7 @@ function Login() {
       password: password,
     }
     Axios
-    .post('http://localhost:3001/auth/login', userdata)
+    .post('https://tranquil-coast-14497.herokuapp.com/auth/login', userdata)
     .then(res => {
       if (res.success) {
         Axios.defaults.headers.common["Authorization"] = res.token

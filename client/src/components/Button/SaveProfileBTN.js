@@ -25,8 +25,8 @@ export default function SaveProfileBTN({ state }) {
         component={Link}
         to="/saved"
         onClick={(e) => {
-          const url = new URL(window.location.origin);
-          url.port = 3001;
+          const url = new URL("https://tranquil-coast-14497.herokuapp.com/");
+          // url.port = 3001;
           url.pathname = "/api/profile";
           axios.post(url.href, {
             first_name: state.first_name,

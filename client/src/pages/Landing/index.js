@@ -138,7 +138,7 @@ const SignUp = () => {
             onClick={(event)=>{
               event.preventDefault()
               console.log("log State", state)
-              Axios.post('http://localhost:3001/auth/register', state)
+              Axios.post('https://tranquil-coast-14497.herokuapp.com/auth/register', state)
           .then(data => {
             history.push("/login")
             console.log(data)
