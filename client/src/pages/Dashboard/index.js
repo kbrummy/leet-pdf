@@ -88,7 +88,6 @@ const Dashboard = () => {
       <Divider />
       <Grid container spacing={3}>
         <Grid item xs={3}>
-          <Preview />
         </Grid>
         <Grid item xs={6} className={classes.profile}>
           <Profile handleInput={handleInput} state={state} />

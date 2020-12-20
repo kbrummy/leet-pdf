@@ -64,11 +64,11 @@ const menuItems = [
     listTest: "Dashboard",
     listPath: "/dashboard",
   },
-  {
-    listIcon: <AccountBoxIcon />,
-    listTest: "Create New Profile",
-    listPath: "/profile",
-  },
+  // {
+  //   listIcon: <AccountBoxIcon />,
+  //   listTest: "Create New Profile",
+  //   listPath: "/profile",
+  // },
   // {
   //   listIcon: <AddBoxIcon />,
   //   listTest: "Create New PDF",
