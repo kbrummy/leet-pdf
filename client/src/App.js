@@ -39,15 +39,14 @@ class App extends Component {
         <div className="App">
           <CssBaseline />
           {/* <Navbar /> */}
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/saved" component={Saved} />
-          <Route exact path="/create" component={Create} />
           <Switch>
-            <Route exact path="/profile" component={ProfilePage} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            <Route path="/register" component={Register} />
+            <Route path="/login" component={Login} />
+            <Route path="/saved" component={Saved} />
+            <Route path="/create" component={Create} />
+            <Route path="/profile" component={ProfilePage} />
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/" component={Login} />
           </Switch>
         </div>
       </Router>

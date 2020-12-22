@@ -3,13 +3,13 @@ const profileController = require("../../controllers/profileController");
 
 // Matches with "/api/profile"
 router.route("/")
-//   .get(profileController.findAll)
-  .post(profileController.create);
+  .get(profileController.findAll)
+  .post(profileController.create)
 
 // Matches with "/api/profile/:id"
 router
-  .route("/")
-//   .get(profileController.findById)
+  .route("/:id")
+  .get(profileController.findById)
 //   .put(profileController.update)
 //   .delete(profileController.remove);
 .post(profileController.create)

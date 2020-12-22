@@ -41,13 +41,16 @@ function Login() {
   const classes = useStyles();
   const [email_address, set_email_address] = useState("");
   const [password, set_password] = useState("");
+  const register = () => {
+    history.push("/register")
+  };
   const signin = () => {
     const userdata = {
       email_address: email_address, 
       password: password,
     }
     Axios
-    .post('http://localhost:3001/auth/login', userdata)
+    .post('https://tranquil-coast-14497.herokuapp.com/auth/login', userdata)
     .then(res => {
       if (res.success) {
         Axios.defaults.headers.common["Authorization"] = res.token
@@ -121,7 +124,7 @@ function Login() {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="/" variant="body2">
+              <Link onClick={register} variant="body2">
                 {"Don't have an account? Register"}
               </Link>
             </Grid>
