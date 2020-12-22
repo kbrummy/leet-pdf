@@ -40,12 +40,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Form = ({ handleInput, state }) => {
   const classes = useStyles();
-  // const [gender, setGender] = React.useState('');
-
-  // const handleChange = (event) => {
-  //   setGender(event.target.value);
-  // };
-
+  
+  console.dir(state);
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <div className={classes.personal}>
