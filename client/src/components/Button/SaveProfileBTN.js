@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SaveProfileBTN({ state }) {
   const classes = useStyles();
-
   return (
     <div>
       <Button
@@ -26,7 +25,6 @@ export default function SaveProfileBTN({ state }) {
         component={Link}
         to="/saved"
         onClick={(e) => {
-          // Heroku URL HERE
           const url = new URL("https://tranquil-coast-14497.herokuapp.com/");
           // url.port = 3001;
           url.pathname = "/api/profile";
