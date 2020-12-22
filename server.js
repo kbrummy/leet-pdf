@@ -14,7 +14,8 @@ const PORT = process.env.PORT || 3001;
 mongoose.connect(
 
   // "mongodb+srv://{Place Your Username Here!}:{Place Your Password Here!}@cluster0-q9g9s.mongodb.net/test?retryWrites=true&w=majority",
-  process.env.MONGODB_URI || "mongodb+srv://iastesana:d4rkn355@cluster0.zmlkb.mongodb.net/leetdbteam?retryWrites=true&w=majority",
+  process.env.MONGODB_URI || "mongodb+srv://agorton:#MDBici1111@cluster0.bpdei.mongodb.net/leetdbteam?retryWrites=true&w=majority",
+
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -32,7 +33,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   // handles communication between react and server for data transfer 
   cors({
-    origin: "https://greezon.github.io", // <-- location of the react app were connecting to
+    origin: "https://aliciagorton.github.io", // <-- location of the react app were connecting to
     credentials: true,
   })
 );
