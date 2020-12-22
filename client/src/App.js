@@ -5,8 +5,6 @@ import "./App.css";
 import Dashboard from "./pages/Dashboard/index";
 import Login from "./pages/Login/index";
 import Register from "./pages/Register/index";
-import Landing from "./pages/Landing/index";
-import PrivateRoute from "./components/PrivateRoute/index";
 import Create from "./pages/CreateNewPDF/index";
 import ProfilePage from "./pages/ProfilePage/index";
 import Saved from "./pages/Saved/index";

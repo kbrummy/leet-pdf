@@ -7,7 +7,6 @@ import { Grid, Box } from "@material-ui/core";
 import Header from "../../components/Header";
 import Divider from "@material-ui/core/Divider";
 import Sidebar from "../Sidebar";
-import Preview from "../Preview";
 import Profile from "../Profile";
 
 const useStyles = makeStyles((theme) => ({
