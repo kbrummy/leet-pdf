@@ -23,15 +23,19 @@ const Sidebar = ({ onClick, state}) => {
   const classes = useStyles();
 
   return (
+  
   <div className={classes.root}>
-    <h2>Clients</h2>
-    <p>
-      {state.clients.map((value, index) => {
-        return <button onClick={onClick} key={value._id} data-id={value._id}>{value.first_name} {value.last_name}</button>
+   <h2>Clients</h2>
+    
+     {state.clients.map((value, index) => {
+        return <ul onClick={onClick} key={value._id} data-id={value._id}>{value.first_name} {value.last_name}</ul>
       })
     }
-    </p>
+    
+   
   </div>
+
+
   );
 };
 

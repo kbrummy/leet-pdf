@@ -64,11 +64,11 @@ const menuItems = [
     listTest: "Dashboard",
     listPath: "/dashboard",
   },
-  {
-    listIcon: <AccountBoxIcon />,
-    listTest: "Create New Profile",
-    listPath: "/profile",
-  },
+  // {
+  //   listIcon: <AccountBoxIcon />,
+  //   listTest: "Create New Profile",
+  //   listPath: "/profile",
+  // },
   // {
   //   listIcon: <AddBoxIcon />,
   //   listTest: "Create New PDF",
@@ -76,7 +76,7 @@ const menuItems = [
   // },
   {
     listIcon: <TurnedInIcon />,
-    listTest: "Saved PDF's",
+    listTest: "Save History",
     listPath: "/saved",
   },
   // Add link to the landing page

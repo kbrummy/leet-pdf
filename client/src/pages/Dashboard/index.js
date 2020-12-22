@@ -45,8 +45,8 @@ const Dashboard = () => {
   };
 
   React.useEffect(() => {
-    const url = new URL(window.location.origin);
-    url.port = 3001;
+    const url = new URL("https://tranquil-coast-14497.herokuapp.com/");
+    // url.port = 3001;
     url.pathname = "/api/profile";
 
     fetch(url.href, {
@@ -63,8 +63,8 @@ const Dashboard = () => {
     let clientId = e.target.dataset.id;
     if(!clientId) return;
     setState({ ...state, clientID: clientId});
-    const url = new URL(window.location.origin);
-    url.port = 3001;
+    const url = new URL("https://tranquil-coast-14497.herokuapp.com/");
+    // url.port = 3001;
     url.pathname = "/api/profile/" + clientId;
 
     fetch(url.href, {
@@ -86,16 +86,12 @@ const Dashboard = () => {
       <Divider />
       <Grid container spacing={3}>
         <Grid item xs={3}>
-          <Preview />
         </Grid>
-
         <Grid item xs={6} className={classes.profile}>
-          <Profile />
           <Profile handleInput={handleInput} state={state} />
         </Grid>
         <Grid item xs={3} className={classes.data}>
           <Box className={classes.preview}>
-            <Sidebar />
             <Sidebar onClick={handleClientInput} state={state}/>
           </Box>
         </Grid>

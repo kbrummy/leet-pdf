@@ -23,12 +23,13 @@ export default function PreviewBTN({ state }) {
         startIcon={<SaveIcon />}
         onClick={(e) => {
           e.preventDefault();
-          const url = new URL(window.location.origin);
-          url.port = 3001;
+          const url = new URL("https://tranquil-coast-14497.herokuapp.com/");
+          // url.port = 3001;
           url.pathname = "/createpdf";
 
           fetch(url.href, {
             method: "POST",
+            mode: "cors",
             body: JSON.stringify(state),
             headers: { "Content-Type": "application/json" },
           }).then((res) => {
