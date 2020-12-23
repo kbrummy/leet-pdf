@@ -23,7 +23,7 @@ export default function PreviewBTN({ state }) {
         startIcon={<SaveIcon />}
         onClick={(e) => {
           e.preventDefault();
-          const url = new URL("https://tranquil-coast-14497.herokuapp.com/");
+          const url = new URL("https://leet-pdf.herokuapp.com/");
           // url.port = 3001;
           url.pathname = "/createpdf";
 

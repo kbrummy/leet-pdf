@@ -25,7 +25,7 @@ export default function SaveProfileBTN({ state }) {
         component={Link}
         to="/saved"
         onClick={(e) => {
-          const url = new URL("https://tranquil-coast-14497.herokuapp.com/");
+          const url = new URL("https://leet-pdf.herokuapp.com/");
           // url.port = 3001;
           url.pathname = "/api/profile";
           axios.post(url.href, {

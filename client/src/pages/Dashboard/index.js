@@ -44,7 +44,7 @@ const Dashboard = () => {
   };
 
   React.useEffect(() => {
-    const url = new URL("https://tranquil-coast-14497.herokuapp.com/");
+    const url = new URL("https://leet-pdf.herokuapp.com/");
     // url.port = 3001;
     url.pathname = "/api/profile";
 
@@ -62,7 +62,7 @@ const Dashboard = () => {
     let clientId = e.target.dataset.id;
     if(!clientId) return;
     setState({ ...state, clientID: clientId});
-    const url = new URL("https://tranquil-coast-14497.herokuapp.com/");
+    const url = new URL("https://leet-pdf.herokuapp.com/");
     // url.port = 3001;
     url.pathname = "/api/profile/" + clientId;
 
