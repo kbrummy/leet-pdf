@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   // handles communication between react and server for data transfer 
   cors({
-    origin: "https://aliciagorton.github.io", // <-- location of the react app were connecting to
+    origin: "https://leet-pdf.herokuapp.com/", // <-- location of the react app were connecting to
     credentials: true,
   })
 );

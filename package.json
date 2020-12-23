@@ -10,7 +10,7 @@
         "client": "cd client && npm run start",
         "seed": "node scripts/seedDB.js",
         "install": "cd client && npm install",
-        "build": "cd client && npm run build",
+        "build": "cd client && npm install && npm run build",
         "heroku-postbuild": "echo done",
         "deploy": "git push heroku main && cd client && npm run deploy"
     },
@@ -46,5 +46,7 @@
     },
     "devDependencies": {
         "nodemon": "^2.0.2"
-    }
+    },
+    "homepage": "https://leet-pdf.herokuapp.com/"
+    
 }
