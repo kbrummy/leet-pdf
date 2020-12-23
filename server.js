@@ -13,8 +13,7 @@ const PORT = process.env.PORT || 3001;
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 mongoose.connect(
 
-  // "mongodb+srv://{Place Your Username Here!}:{Place Your Password Here!}@cluster0-q9g9s.mongodb.net/test?retryWrites=true&w=majority",
-  process.env.MONGODB_URI || "mongodb+srv://agorton:#MDBici1111@cluster0.bpdei.mongodb.net/leetdbteam?retryWrites=true&w=majority",
+  process.env.MONGODB_URI,
 
   {
     useNewUrlParser: true,
