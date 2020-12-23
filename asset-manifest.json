@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/leet-pdf/static/css/main.1a81d260.chunk.css",
-    "main.js": "/leet-pdf/static/js/main.fd4c1fbe.chunk.js",
-    "main.js.map": "/leet-pdf/static/js/main.fd4c1fbe.chunk.js.map",
+    "main.js": "/leet-pdf/static/js/main.963de429.chunk.js",
+    "main.js.map": "/leet-pdf/static/js/main.963de429.chunk.js.map",
     "runtime-main.js": "/leet-pdf/static/js/runtime-main.fddbc804.js",
     "runtime-main.js.map": "/leet-pdf/static/js/runtime-main.fddbc804.js.map",
     "static/js/2.77001e4e.chunk.js": "/leet-pdf/static/js/2.77001e4e.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.fddbc804.js",
     "static/js/2.77001e4e.chunk.js",
     "static/css/main.1a81d260.chunk.css",
-    "static/js/main.fd4c1fbe.chunk.js"
+    "static/js/main.963de429.chunk.js"
   ]
 }
