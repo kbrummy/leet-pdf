@@ -1,12 +1,6 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
-
 import { Divider, Typography, makeStyles } from "@material-ui/core";
-// import Select from '@material-ui/core/Select';
-// import FormControl from '@material-ui/core/FormControl';
-// import MenuItem from '@material-ui/core/MenuItem';
-// import InputLabel from '@material-ui/core/InputLabel';
-// import AntSwitch from '../../components/Button/AntSwitch';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,13 +33,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Form = ({ handleInput, state }) => {
+  
   const classes = useStyles();
-  // const [gender, setGender] = React.useState('');
-
-  // const handleChange = (event) => {
-  //   setGender(event.target.value);
-  // };
   console.dir(state);
+
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <div className={classes.personal}>

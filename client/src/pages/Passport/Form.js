@@ -1,10 +1,6 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
-
 import { Divider, Typography, makeStyles } from "@material-ui/core";
-
-// import MenuItem from '@material-ui/core/MenuItem';
-// import Checkbox from '@material-ui/core/Checkbox';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,40 +17,38 @@ const useStyles = makeStyles((theme) => ({
 
 const Form = ({handleInput, state}) => {
 
-    const classes = useStyles();
-    // const [gender, setGender] = React.useState('Male');
-    // const handleChange = (event) => {
-    //     setGender(event.target.value);
-    return (
-      <form className={classes.root} noValidate autoComplete="off">
-        <div>
-          <Typography varient="h4" className={classes.heading}>Personal Information</Typography>
-          <TextField
-            required
-            id="first_name"
-            label="First Name"
-            variant="outlined"
-            color="secondary"
-            value = {state.first_name}
-            onChange = {handleInput}
-          />
-          <TextField
-            id="middle_name"
-            label="Middle name"
-            variant="outlined"
-            color="secondary"
-            value = {state.middle_name}
-            onChange = {handleInput}
-          />
-          <TextField
-            required
-            id="last_name"
-            label="Last Name"
-            variant="outlined"
-            color="secondary"
-            value = {state.last_name}
-            onChange = {handleInput}
-          />
+  const classes = useStyles();
+ 
+  return (
+    <form className={classes.root} noValidate autoComplete="off">
+      <div>
+        <Typography varient="h4" className={classes.heading}>Personal Information</Typography>
+        <TextField
+          required
+          id="first_name"
+          label="First Name"
+          variant="outlined"
+          color="secondary"
+          value = {state.first_name}
+          onChange = {handleInput}
+        />
+        <TextField
+          id="middle_name"
+          label="Middle name"
+          variant="outlined"
+          color="secondary"
+          value = {state.middle_name}
+          onChange = {handleInput}
+        />
+        <TextField
+          required
+          id="last_name"
+          label="Last Name"
+          variant="outlined"
+          color="secondary"
+          value = {state.last_name}
+          onChange = {handleInput}
+        />
           <TextField
             required
             id="d_o_b"
@@ -65,22 +59,7 @@ const Form = ({handleInput, state}) => {
             value = {state.d_o_b}
             onChange = {handleInput}
           />
-          {/* GENDER */}
-          {/* <TextField
-                id="gender"
-                select
-                label="Gender"
-                value={gender}
-                onChange={handleChange}
-                helperText="Please select your gender"
-                variant="outlined"
-                >
-                {gender.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                    </MenuItem>
-                ))}
-                </TextField> */}
+          {/* SOCIALSECURITY */}
           <TextField
             required
             id="ss_number"
@@ -126,15 +105,6 @@ const Form = ({handleInput, state}) => {
             variant="outlined"
             color="secondary"
           />
-          {/* USE FOR LARGER ADDRESS */}
-          {/* <TextField
-                id="outlined-multiline-static"
-                label="Multiline"
-                multiline
-                rows={4}
-                defaultValue="Default Value"
-                variant="outlined"
-                /> */}
           <TextField
             id="address_two"
             label="Address Two"
