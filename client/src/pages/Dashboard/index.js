@@ -25,17 +25,17 @@ const useStyles = makeStyles((theme) => ({
 /*
 Retrieve JWT from local storage, decode, and return data
 */
-const FetchUserData = () => {
-  // get token from local storage
-  const token = window.localStorage.getItem("leet-pdf");
-  // TODO: add logic to handle if token cannot be retrieved
-  const base64Url = token.split('.')[1];
-  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-  const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-  }).join(''));
-  return JSON.parse(jsonPayload);
-}
+// const FetchUserData = () => {
+//   // get token from local storage
+//   const token = window.localStorage.getItem("leet-pdf");
+//   // TODO: add logic to handle if token cannot be retrieved
+//   const base64Url = token.split('.')[1];
+//   const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+//   const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+//     return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+//   }).join(''));
+//   return JSON.parse(jsonPayload);
+// }
 
 const Dashboard = () => {
   const classes = useStyles();

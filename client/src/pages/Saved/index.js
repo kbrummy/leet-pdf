@@ -19,38 +19,38 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Saved = () => {
-    const classes = useStyles();
+  const classes = useStyles();
 
-    const [state, setState] = React.useState({clients : [], clientID: null, client: {}});
-    const handleClientInput = (e) => {};
+  const [state, setState] = React.useState({clients : [], clientID: null, client: {}});
+  const handleClientInput = (e) => {};
 
-    React.useEffect(() => {
-      let state = this.state;
-      const url = new URL(process.env.SERVER_URL);
-        url.pathname = "/api/profile";
-    
-      fetch(url.href, {
-        method: "GET",
+  React.useEffect(() => {
+    let state = this.state;
+    const url = new URL(process.env.SERVER_URL);
+      url.pathname = "/api/profile";
+  
+    fetch(url.href, {
+      method: "GET",
+    })
+      .then((res) => {
+        res.json().then((clients) => {
+          setState({ ...state, clients : clients });
+        });
       })
-        .then((res) => {
-          res.json().then((clients) => {
-            setState({ ...state, clients : clients });
-          });
-        })
-        .catch((error) => alert(error.message));
-    }, []);
+      .catch((error) => alert(error.message));
+  }, []);
 
-    return (
-        <div>
-        <Navbar />
-        <Card Grid className={classes.mainContainer}>
-            <Typography varient="h3" className={classes.heading}>
-            Saved PDFs
-            </Typography>
-            <Sidebar onClick={handleClientInput} state={state}/>
-        </Card>
-        </div>
-    )
+  return (
+    <div>
+    <Navbar />
+    <Card Grid className={classes.mainContainer}>
+        <Typography varient="h3" className={classes.heading}>
+        Saved PDFs
+        </Typography>
+        <Sidebar onClick={handleClientInput} state={state}/>
+    </Card>
+    </div>
+  )
 }
 
 export default Saved;

@@ -25,6 +25,7 @@
         "bcryptjs": "^2.4.3",
         "concurrently": "^5.0.2",
         "cookie-parser": "^1.4.5",
+        "core-js": "^3.8.1",
         "cors": "^2.8.5",
         "docspring": "^1.3.1",
         "dotenv": "^8.2.0",
