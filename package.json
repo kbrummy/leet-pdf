@@ -45,6 +45,5 @@
     },
     "devDependencies": {
         "nodemon": "^2.0.2"
-    },
-    "homepage": "https://leet-pdf.herokuapp.com/client/build"
+    }
 }
