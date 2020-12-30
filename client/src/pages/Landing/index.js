@@ -49,18 +49,12 @@ const SignUp = () => {
     let { id, value } = e.target;
     setState({ ...state, [id]: value });
   };
-  // const [first_name, set_first_name] = useState("")
 
-  // handleInput(e) {
-
-  // }
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar} src={avatar} alt="Leet Logo">
-          {/* <LockOutlinedIcon /> */}
-        </Avatar>
+        <Avatar className={classes.avatar} src={avatar} alt="Leet Logo" />
         <Typography component="h1" variant="h5">
           Sign up for Leet
         </Typography>
@@ -136,7 +130,7 @@ const SignUp = () => {
             onClick={(event)=>{
               event.preventDefault()
               console.log("log State", state)
-              Axios.post('https://leet-pdf.herokuapp.com/auth/register', state)
+              Axios.post('/auth/register', state)
           .then(data => {
             history.push("/login")
             console.log(data)

@@ -41,6 +41,7 @@ const Dashboard = () => {
   const classes = useStyles();
 
   const [state, setState] = React.useState({clients : [], clientID: null, client: {}});
+  
   const handleInput = (e) => {
     let { id, value } = e.target;
     setState({ ...state, client: {...state.client, [id]: value }});
@@ -76,7 +77,7 @@ const Dashboard = () => {
       })
       .catch((error) => alert(error.message));
   };
-  
+
   return (
     <div className={classes.root}>
       <Navbar />
