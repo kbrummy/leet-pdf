@@ -17,36 +17,51 @@ class Login extends Component {
 
   componentDidMount() {
     // If logged in and user navigates to Login page, should redirect them to dashboard
-    if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
-    }
+    console.log('Checking if user is authenticated');
+    // if (this.props.auth.isAuthenticated) {
+    //   this.props.history.push("/dashboard");
+    // }
   }
 
   componentWillReceiveProps(nextProps) {
+
+    console.log('componentWillRecieveProps Start');
+
     if (nextProps.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
     }
+
+    console.log('componentWillReceiveProps Midway');
 
     if (nextProps.errors) {
       this.setState({
         errors: nextProps.errors
       });
     }
+
+    console.log('componentWillReceiveProps End');
   }
 
   onChange = e => {
+    console.log('onChange fired');
+
     this.setState({ [e.target.id]: e.target.value });
   };
 
   onSubmit = e => {
     e.preventDefault();
 
+    console.log('onSubmit Start');
+
     const userData = {
       email: this.state.email,
       password: this.state.password
     };
+    console.log('onSubmit Halfway');
 
     this.props.loginUser(userData);
+
+    console.log('onsubmitEnd');
   };
 
   render() {

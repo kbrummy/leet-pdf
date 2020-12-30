@@ -18,6 +18,7 @@ class Register extends Component {
   }
 
   componentDidMount() {
+    console.log('componentDidMount in Register.js');
     // If logged in and user navigates to Register page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
@@ -25,6 +26,7 @@ class Register extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log('componentWillReieceProps in Register.js');
     if (nextProps.errors) {
       this.setState({
         errors: nextProps.errors
@@ -33,11 +35,14 @@ class Register extends Component {
   }
 
   onChange = e => {
+    console.log('onChange in Register.js');
     this.setState({ [e.target.id]: e.target.value });
   };
 
   onSubmit = e => {
     e.preventDefault();
+
+    console.log('onSubmit in Register.js');
 
     const newUser = {
       name: this.state.name,
