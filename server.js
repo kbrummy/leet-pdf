@@ -3,18 +3,16 @@ const mongoose = require("mongoose");
 const docspring = require("./routes/api/docspring");
 const express = require("express");
 const cors = require("cors");
-var passport = require("passport");
+const passport = require("passport");
 const cookieParser = require("cookie-parser");
 const routes = require("./routes");
-const User = require('./models/user');
+const path = require('path');
 const app = express();
+
 const PORT = process.env.PORT || 3001;
 
-//----------------------------------------- END OF IMPORTS---------------------------------------------------
 mongoose.connect(
-
   process.env.MONGODB_URI,
-
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -29,44 +27,45 @@ mongoose.connection.on('connected', () => {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  // handles communication between react and server for data transfer 
-  cors({
-    origin: "https://leet-pdf.herokuapp.com/", // <-- location of the react app were connecting to
-    credentials: true,
-  })
-);
 
-app.use(cookieParser("secretcode"));
+// handles communication between react and server for data transfer
+app.use(cors({origin: process.env.SERVER_URL, credentials: true}));
 
-app.get("/test", (req, res) => {
-  console.log("you ")
-  res.send("hI, Im on the font end now!")
+app.use(cookieParser(process.env.SECRET));
+
+// ------------------------------------------- ROUTES -----------------------------------------------------
+
+// path to static assets
+app.use(express.static(path.join(__dirname, 'client', 'build')))
+
+// homepage
+app.get("/", (req, res) => {
+  res.sendFile('index.html');
 })
 
+// save data to database here
 app.post("/createpdf", function (req, res) {
-  // save data to database here
   docspring.generateDs11(req, res);
 });
-//----------------------------------------- END OF ROUTES---------------------------------------------------
-// Routes needs to go before middleware cause middleware has a catchall.
-// Middleware
 
+// healthcheck
+app.get("/test", (req, res) => {
+  res.send("Test Succeeded.")
+})
 
+// ----------------------------------------- END OF ROUTES-----------------------------------------------------
+
+// ------------------------------------------- MIDDLEWARE -----------------------------------------------------
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// ---------------------------------------- END OF MIDDLEWARE -------------------------------------------------
+
+// --------------------------------------- FIRE UP THE SERVER ------------------------------------------------
 
 app.use(routes);
 
-app.use(passport.initialize()); 
-app.use(passport.session());
-passport.serializeUser(User.serializeUser()); 
-passport.deserializeUser(User.deserializeUser());
-
-const LocalStrategy = require('passport-local').Strategy; 
-passport.use(new LocalStrategy(User.authenticate()));
-
-//----------------------------------------- END OF MIDDLEWARE---------------------------------------------------
-//Start Server
-// Start the API server
 app.listen(PORT, function () {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+  console.log(`🌎  ==> API Server now listening on PORT: ${PORT}!`);
 });
