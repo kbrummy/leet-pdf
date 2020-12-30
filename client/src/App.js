@@ -12,11 +12,9 @@ import Saved from "./pages/Saved/index";
 class App extends Component {
   render() {
     return (
-      // <Provider store={store}>
       <Router>
         <div className="App">
           <CssBaseline />
-          {/* <Navbar /> */}
           <Switch>
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />

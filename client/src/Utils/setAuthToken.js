@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const setAuthToken = token => {
+  console.log('setting auth token');
+  
   if (token) {
+    console.log('setAuthoken.js if token');
     // Apply authorization token to every request if logged in
     axios.defaults.headers.common["Authorization"] = token;
   } else {
