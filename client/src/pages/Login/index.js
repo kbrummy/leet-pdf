@@ -31,12 +31,17 @@ const useStyles = makeStyles((theme) => ({
     width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
+  messages: {
+    width: "100%",
+  },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
 }));
 
 function Login() {
+  console.log('function login in Login/index.js');
+
   let history = useHistory();
   const classes = useStyles();
   const [email_address, set_email_address] = useState("");
@@ -44,19 +49,54 @@ function Login() {
   const register = () => {
     history.push("/register")
   };
+
+  // add a react hook for keeping track of the message feedback state
+  const [message, setMessage] = useState(null)
+
   const signin = () => {
+
+    console.log('signin in Login\index.js');
+
     const userdata = {
       email_address: email_address, 
       password: password,
     }
     Axios
-    .post('https://leet-pdf.herokuapp.com/auth/login', userdata)
+    .post('/auth/login', userdata)
     .then(res => {
-      if (res.success) {
-        Axios.defaults.headers.common["Authorization"] = res.token
-        localStorage.setItem("jwtToken", res.token)
+      if (res.success === true) {
+         // route user to the dashboard
+         console.log('res.success === true');
+        Axios.defaults.headers.common["Authorization"] = res.data.token;
+        localStorage.setItem("leet-pdf", res.data.token);
+        history.push("/dashboard");
       }
-      history.push("/dashboard")
+      else if (res.data.success === false && res.data.message === 'user account was not found'){
+        // send error message to user
+        setMessage(
+          <Card className={useStyles.messages}>
+            <CardContent>
+              <Typography>
+                Cannot find user account. Check your email and password are correct.
+              </Typography>
+            </CardContent>
+          </Card>
+        )
+      }
+      else {
+        // send error message to user
+        setMessage(
+          <Card className={useStyles.messages}>
+            <CardContent>
+              <Typography>
+                Uh oh! Something went terribly wrong with trying to log you in.
+              </Typography>
+            </CardContent>
+          </Card>
+        )
+      }
+    });
+
     })
   };
 
