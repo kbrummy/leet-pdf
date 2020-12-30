@@ -9,6 +9,7 @@ client = new DocSpring.Client(config);
 
 function generateDs11(req, res) {
   var template_id = "tpl_aD7H2ZgJRE54nLMCb9";
+  // TODO: should this template ID be visible in the code?
   delete req.body._id;
   delete req.body.__v;
   var submission_data = {
@@ -20,8 +21,7 @@ function generateDs11(req, res) {
       console.log(response, error);
       throw error;
     }
-    var submission = response.submission;
-    // console.log("Download your PDF at:", submission.download_url);
+    const submission = response.submission;
     res.json({ href: submission.download_url });
   });
 }

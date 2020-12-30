@@ -10,9 +10,8 @@ router.route("/")
 router
   .route("/:id")
   .get(profileController.findById)
-//   .put(profileController.update)
-//   .delete(profileController.remove);
-.post(profileController.create)
+//// TODO: creating records is usually handled through a PUT request, not a POST request
+  .post(profileController.create)
 
 
 module.exports = router;
