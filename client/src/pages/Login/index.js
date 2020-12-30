@@ -61,8 +61,8 @@ function Login() {
       email_address: email_address, 
       password: password,
     }
-    Axios
-    .post('/auth/login', userdata)
+
+    Axios.post('/auth/login', userdata)
     .then(res => {
       if (res.success === true) {
          // route user to the dashboard
@@ -96,21 +96,21 @@ function Login() {
         )
       }
     });
-
-    })
   };
 
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-      <Avatar className={classes.avatar} src={avatar} alt="Leet Logo">
-          {/* <LockOutlinedIcon /> */}
-      </Avatar>
+      <Avatar className={classes.avatar} src={avatar} alt="Leet Logo"/>
       <Typography component="h1" variant="h5">
         Leet
       </Typography>
-      <form className={classes.form} noValidate>
+      <form 
+      className={classes.form} 
+      noValidate
+      onSubmit={event => event.preventDefault()}
+      >
         <TextField
           required
           id="email_address"
@@ -124,8 +124,6 @@ function Login() {
           fullWidth
           autoComplete="email"
           autoFocus
-           // onChange={handleInput}
-          // value={state.email_address}
           onChange={(e) => set_email_address(e.target.value)}
         />
         <TextField
@@ -141,22 +139,20 @@ function Login() {
           fullWidth
           autoFocus
           autoComplete="current-password"
-          // value={state.password}
-          // onChange={handleInput}
-          onChange={(e) => 
-            set_password(e.target.value)} 
+          onChange={(e) => set_password(e.target.value)} 
           />
-      </form>
-        <Button  
+        {message}
+        <Button
           type="submit"
           fullWidth
           variant="contained"
           color="secondary"
-          className={classes.submit} 
+          className={classes.submit}
           onClick={signin}
-          >
+        >
           Login
         </Button>
+      </form>
         <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">
