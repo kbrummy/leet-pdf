@@ -57,7 +57,7 @@ function Login() {
 
     Axios.post('/auth/login', userdata)
     .then(res => {
-      if (res.success === true) {
+      if (res.data.success === true) {
          // route user to the dashboard
          console.log('res.success === true');
         Axios.defaults.headers.common["Authorization"] = res.data.token;
